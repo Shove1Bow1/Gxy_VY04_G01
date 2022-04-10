@@ -1,25 +1,22 @@
-import logo from './logo.svg';
+import {React} from "react";
+import { BrowserRouter as Router,Routes,Route  } from "react-router-dom";
 import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Confirm from "./components/Confirm";
+import DangKy from "./components/DangKy";
+import DangKyFist from "./components/DangKyFist";
+import DangNhapTell from "./components/DangNhapTell";
+import EmailOtp from "./components/EmailOtp";
+const App = () => {
+  return(
+    <Router>
+     <DangKy/>
+     <Routes>
+     <Route path='/'element={<DangKyFist/>}/>
+     <Route path='/next1'element={<DangNhapTell/>}/>
+     <Route path='/next2'element={<EmailOtp/>}/>
+     <Route path='/next3'element={<Confirm/>}/>
+     </Routes>
+    </Router>   
+  )
 }
-
 export default App;
