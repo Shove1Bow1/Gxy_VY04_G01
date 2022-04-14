@@ -6,7 +6,7 @@ import DangKy from "./DangKy";
 import DangKyFist from "./DangKyFist";
 import DangNhapTell from "./DangNhapTell";
 import EmailOtp from "./EmailOtp";
-import "./PartnerRegister/Register.css";
+import "./PartnerRegister.css";
 const Register=()=>{
     return(
         <Router className="RouterPath">
