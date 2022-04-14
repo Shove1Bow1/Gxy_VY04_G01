@@ -5,7 +5,6 @@ const TopNav=()=>{
             <nav class="navbar navbar-expand-lg 
             navbar-light bg-primary">
                 <a class="navbar-brand" href="#">Navbar</a>
-                <!-- hamburger button that toggles the navbar-->
                 <button class="navbar-toggler" type="button"
                     data-toggle="collapse"
                     data-target="#navbarNavAltMarkup"
@@ -15,7 +14,6 @@ const TopNav=()=>{
                     <span class="navbar-toggler-icon">
                     </span>
                 </button>
-                <!-- navbar links -->
                 <div class="collapse navbar-collapse"
                     id="navbarNavAltMarkup">
                     <div class="navbar-nav">
@@ -34,8 +32,6 @@ const TopNav=()=>{
                 <div class="row h-100">
                     <div class="col-2" id="green">
                         <h4>Sidebar</h4>
-
-                        <!-- Navigation links in sidebar-->
                         <a href="#">Link 1</a><br />
                         <br />
                         <a href="#">Link 2</a><br />
@@ -45,8 +41,6 @@ const TopNav=()=>{
                         <a href="#">Link 4</a><br />
                         <br />
                     </div>
-                    <!--Contains the main content
-                    of the webpage-->
                     <div class="col-10" style="text-align: justify;">
                         Bootstrap is a free and open-source
                         tool collection for creating responsive
