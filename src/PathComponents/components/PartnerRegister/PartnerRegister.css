@@ -1,4 +1,7 @@
 .RouterPath{
-    background: #007bff;
+    width: 100%;
+    height: 100%;
+    background-color: #007bff;
     background: linear-gradient(to right, #0062E6, #33AEFF);
+    position: fixed;
 }

@@ -5,7 +5,7 @@ import AdminLogin from "./PathComponents/components/Admin/Login"
 import Merge from "./PathComponents/components/PartnerRegister/Merge"
 const App = () => {
   return(
-    <Merge/>
+    <Homepage/>
   )
 }
 export default App;
