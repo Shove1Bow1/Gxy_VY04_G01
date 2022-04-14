@@ -6,9 +6,10 @@ import DangKy from "./DangKy";
 import DangKyFist from "./DangKyFist";
 import DangNhapTell from "./DangNhapTell";
 import EmailOtp from "./EmailOtp";
+import "./PartnerRegister/Register.css";
 const Register=()=>{
     return(
-        <Router>
+        <Router className="RouterPath">
             <DangKy />
             <Routes>
                 <Route path='/' element={<DangKyFist />} />
