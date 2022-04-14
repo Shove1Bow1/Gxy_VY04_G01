@@ -1,10 +1,9 @@
 import {React} from "react";
-import { BrowserRouter as Router,Routes,Route  } from "react-router-dom";
 import './App.css';
-import PartnerRegister from "./PathComponents/components/PartnerRegister/Merge"
+import AdminLogin from "./PathComponents/components/Admin/Login"
 const App = () => {
   return(
-    <PartnerRegister/>
+    <AdminLogin/>
   )
 }
 export default App;
