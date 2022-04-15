@@ -1,0 +1,28 @@
+.body
+{
+  background: #0062E6;
+}
+.button-size{
+    width: 100%;
+  }
+.size-box{
+  width: 50%;
+}
+.container-login{
+   text-align: center;
+}
+.text-left{
+    margin-right: 100%;
+}
+.mar-button{
+  margin-top: 10px;
+}
+.text-left-2{
+  margin-right: 45%;
+}
+.text-left-3{
+  margin-right: 65%;
+}
+.text-left-otp{
+  margin-right: 74%;
+}

@@ -4,10 +4,12 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Merge from "./PathComponents/components/PartnerRegister/Merge"
+import DangNhapPartner from './PathComponents/components/PartnerRegister/DangNhapPartner';
+import AppLogin from './PathComponents/components/Login/AppLogin';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App/>
+    <AppLogin/>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -51,7 +51,7 @@ const DangKyFist = () =>{
                     <div className="col-s-4">
                     </div>
                     <div>
-                      <p> Already have account?&emsp;<a class="fw-bold text-body"><b className="colorlogo">Log in here</b></a></p>
+                      <p> Already have account?&emsp;<Link to="/loginpar"><a class="fw-bold text-body"><b className="colorlogo">Log in here</b></a></Link></p>
                     </div>
                   </form>
                 </div>
