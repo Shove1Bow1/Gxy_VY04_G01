@@ -1,9 +1,12 @@
-import React from "react";
-const Services=()=>{
-    return (
-        <div>
+import React, { useEffect } from "react";
+import { useState } from "react";
 
-        </div>
-    )
-}
+const Services=()=> {
+        return (
+            <div>
+                <h3>Quản lý các dịch vụ</h3>
+            </div>
+        )
+    }
+  
 export default Services;

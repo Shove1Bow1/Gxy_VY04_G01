@@ -9,7 +9,7 @@ import AppLogin from './PathComponents/components/Login/AppLogin';
 
 ReactDOM.render(
   <React.StrictMode>
-    <AppLogin/>
+    <App/>
   </React.StrictMode>,
   document.getElementById('root')
 );

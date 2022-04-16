@@ -16,7 +16,6 @@ const LoginPage=()=>{
                 <div style={{textAlign:"end",marginTop:5+"px"}}>
                     <button type="submit" class="btn btn-primary" style={{background:"blue"}}>Sign In</button>
                 </div>
-                
             </form>
         </div>
     )

@@ -19,9 +19,8 @@ const Register=()=>{
                     <Route path='/next1' element={<DangNhapTell />} />
                     <Route path='/next2' element={<EmailOtp />} />
                     <Route path='/next3' element={<Confirm />} />
-
                 </Routes>
-            </div>
+            </div>   
         </Router>   
     )
 }
