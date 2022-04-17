@@ -1,7 +1,4 @@
-.body
-{
-  background: #0062E6;
-}
+
 .button-size{
     width: 100%;
   }
@@ -25,4 +22,7 @@
 }
 .text-left-otp{
   margin-right: 74%;
+}
+.mar-text{
+  padding-top: 50em;
 }

@@ -27,7 +27,7 @@
     color: #0062E6;
   }
   .container{
-    padding-left: 17em;
+    padding-left: 20%;
     
   }
   .card-signin {
@@ -143,12 +143,11 @@
   .button-size{
     width: 100%;
   }
-.RouterPath{
+.bg-register{
     width: 100%;
-    height: 100%;
     background-color: #007bff;
     background: linear-gradient(to right, #0062E6, #33AEFF);
-    position: fixed;
+   
 }
 .center{
     text-align: center;

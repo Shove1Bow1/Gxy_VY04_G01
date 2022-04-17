@@ -3,8 +3,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 const DangKyFist = () =>{
     return(
-      <div className="col-sm-10">
-        <div class="container py-5 h-100">
+      <div class="bg-register">
+        <div class=" py-5 h-100">
           <div class="row">
             <div class="col-lg-10 col-xl-9 mx-auto">
               <div class="card card-signin flex-row my-5">
