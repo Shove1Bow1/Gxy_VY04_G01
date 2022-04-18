@@ -10,17 +10,16 @@ import EmailOtp from "./EmailOtp";
 import "./PartnerRegister.css";
 const Register=()=>{
     return(
-        <Router >
-            <div className="RouterPath">
+        <Router >     
                 <DangKy />
                 <Routes>
                     <Route path='/' element={<DangKyFist />} />
+                    <Route path='/register' element={<DangKyFist />} />
                     <Route path='/loginpar' element={<DangNhapPartner />} />
                     <Route path='/next1' element={<DangNhapTell />} />
                     <Route path='/next2' element={<EmailOtp />} />
                     <Route path='/next3' element={<Confirm />} />
-                </Routes>
-            </div>   
+                </Routes> 
         </Router>   
     )
 }

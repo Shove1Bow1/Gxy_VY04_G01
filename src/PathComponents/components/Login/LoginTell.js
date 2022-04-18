@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const LoginTell = () => {
     return(
 
-<section class="vh-100 " style={{background:" #508bfc"}}>
+<section style={{background:" #508bfc"}}>
   <div class="container-login py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
@@ -15,8 +15,8 @@ const LoginTell = () => {
 
             <h3 class="mb-5 text-center">Sign in</h3>
 
-            <div class="form-outline mb-4">
-                <label class="form-label text-left-otp" for="typeEmailX-2">Phone Number</label>
+            <div class="form-outline mb-4 text-left-2">
+                <label class="form-label " for="typeEmailX-2">Phone Number</label>
                 <input type="email" id="typeEmailX-2" class="form-control form-control-lg" />
             </div>
 
@@ -36,7 +36,7 @@ const LoginTell = () => {
 
             <hr class="my-4"/>
 
-            <p class="text-left-3 "><Link to="/loginemail"><b class="colorlogo" >Use Email</b></Link>&ensp;or&ensp;<Link to="/otp"><b class="colorlogo" >OTP</b></Link></p>
+            <p class="text-left-2"><Link to="/loginemail"><b class="colorlogo" >Use Email</b></Link>&ensp;or&ensp;<Link to="/otp"><b class="colorlogo" >OTP</b></Link></p>
 
             <button class="btn btn-lg btn-block btn-primary button-size mar-button " style={{background:" #dd4b39"}}
               type="submit"><i class="fab fa-google me-2"></i> Sign in with google</button>
