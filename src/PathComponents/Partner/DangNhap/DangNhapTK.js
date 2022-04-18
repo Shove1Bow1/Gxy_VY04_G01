@@ -70,36 +70,11 @@ const DangNhapPartner = () => {
                       {" "}
                       Not yet a partner?&emsp;
                       <a class="fw-bold text-body">
-                        <b className="colorlogo"><Link to="/register">Register here</Link></b>
+                        <b className="colorlogo"><Link to="/Partner/DangKy/next1">Register here</Link></b>
                       </a>
                     </p>
                   </div>
                   <hr className="my-2" />
-                  <div class="row text-center">
-                    <p>
-                      <div class="row">
-                        <div class="col-sm-5">
-                          <a href="#" class="btn btn-store">
-                            <span class="fa fa-android fa-3x pull-left"></span>
-                            <span class="btn-label text-size-button">
-                              Get it on
-                            </span>
-                            <span class="btn-caption">Google Play</span>
-                          </a>
-                        </div>
-                        &nbsp;&nbsp;&nbsp;
-                        <div class="col-sm-6">
-                          <a href="#" class="btn btn-store">
-                            <span class="fa fa-apple fa-3x pull-left"></span>
-                            <span class="btn-label text-size-button">
-                              Download on the
-                            </span>
-                            <span class="btn-caption">App Store</span>
-                          </a>
-                        </div>
-                      </div>
-                    </p>
-                  </div>
                 </form>
               </div>
             </div>

@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, Route,Routes } from "react-router-dom";
-import Login from "./img/yo.png"
+import Login from "../img/DangNhap.png"
 const LoginPage = () => {  
     const [getAdminName, setAdminName] = useState("");
     const [getAdminPassword, setAdminPassword] = useState("");

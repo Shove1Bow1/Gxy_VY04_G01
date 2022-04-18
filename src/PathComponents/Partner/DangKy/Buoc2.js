@@ -40,7 +40,7 @@ const DangNhapTell = () =>{
                </div>
               
                <hr/>
-               <Link to="/next2"><button class="btn btn-lg btn-primary btn-block text-uppercase">Next</button></Link>
+               <Link to="/Partner/DangKy/next3"><button class="btn btn-lg btn-primary btn-block text-uppercase">Next</button></Link>
                <hr className="my-4" />
                <div className="col-s-4">
                </div>

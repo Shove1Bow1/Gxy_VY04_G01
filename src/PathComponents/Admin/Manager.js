@@ -1,17 +1,21 @@
 import React from "react";
-import SideNav from "./SideNav";
+import SideNav from "./Navigator/SideNav";
 import { Routes,Route, useLocation  } from "react-router-dom";
 import Rules from "./Manager/Rules";
 import Services from "./Manager/Services";
 import Home from "./Manager/Home";
-import TopNav from "./TopNav";
+import TopNav from "./Navigator/TopNav";
 
 import "./nav.css"
 import EditService from "./Manager/EditService";
 const Homepage=()=>{
     var EditLink;
     const location=useLocation();
-  
+    async function StayLogin(){
+        const res=await fetch("http://localhost:8020/Admin/Login");
+        const data=res.json();                      
+        return data;
+    }
     if(location.state===null){
         EditLink="/Services/EditService";
     }
@@ -20,7 +24,7 @@ const Homepage=()=>{
         EditLink = "/Services/" + id + "/EditService";
         console.log(EditLink)
     }
-   
+    
     return (
         <div className="container-fluid HomePage" style={{width:80+"%"}}>  
                 <div>

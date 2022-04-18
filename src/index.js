@@ -3,15 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Merge from "./PathComponents/components/PartnerRegister/Merge"
-import DangNhapPartner from './PathComponents/components/PartnerRegister/DangNhapPartner';
-import AppLogin from './PathComponents/components/Login/AppLogin';
-import MyBounsPoints from './PathComponents/components/Bouns_Points/My_Bouns_Points';
-import AppBounsPoints from './PathComponents/components/Bouns_Points/App_Bouns_Points';
-
 ReactDOM.render(
   <React.StrictMode>
-    <AppBounsPoints/>
+      <App/>
   </React.StrictMode>,
   document.getElementById('root')
 );

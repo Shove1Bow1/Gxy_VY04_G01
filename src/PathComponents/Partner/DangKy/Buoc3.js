@@ -35,7 +35,7 @@ const EmailOtp = () => {
               </div>
 
               <hr/>
-              <Link to="/next3"><button class="btn btn-lg btn-primary btn-block text-uppercase">Next</button></Link>
+              <Link to="/Partner/DangKy/next4"><button class="btn btn-lg btn-primary btn-block text-uppercase">Next</button></Link>
               <hr className="my-4" />
               <div className="col-s-4">
               </div>

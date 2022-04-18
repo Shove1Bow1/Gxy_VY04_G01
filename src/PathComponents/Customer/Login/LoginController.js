@@ -9,15 +9,15 @@ import '../../../App.css';
 
 const AppLogin=()=>{
     return(
-            <Router>
-                <Login />
-                <Routes>
+        <Router>
+            <Login />
+            <Routes>
                 <Route path='/' element={<LoginEmail />} />
                 <Route path='/loginemail' element={<LoginEmail />} />
                 <Route path='/logintell' element={<LoginTell />} />
                 <Route path='/otp' element={<LoginOtp />} />
-                </Routes>
-            </Router>
+            </Routes>
+        </Router>
          
     )
 }

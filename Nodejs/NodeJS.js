@@ -28,6 +28,8 @@ con.connect(err=>{
 ///
 //////-COMMAND LINES
 ///
+
+//-Admin only
 router.get("/Admin/getServiceManager", (req, res, next) => {
     con.query("select * from SERVICE_PROVIDER", function (err, result, filesd) {
         if (err) throw err;

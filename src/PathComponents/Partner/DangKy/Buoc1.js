@@ -46,12 +46,12 @@ const DangKyFist = () =>{
                       </div>
                     </div>
                     <hr />
-                    <Link to="/next1"><button class="btn btn-lg btn-primary btn-block text-uppercase">Next</button></Link>
+                    <Link to="/Partner/DangKy/next2"><button class="btn btn-lg btn-primary btn-block text-uppercase">Next</button></Link>
                     <hr className="my-4" />
                     <div className="col-s-4">
                     </div>
                     <div>
-                      <p> Already have account?&emsp;<Link to="/loginpar"><a class="fw-bold text-body"><b className="colorlogo">Log in here</b></a></Link></p>
+                      <p> Already have account?&emsp;<Link to="/Partner/DangNhap"><a class="fw-bold text-body"><b className="colorlogo">Log in here</b></a></Link></p>
                     </div>
                   </form>
                 </div>
