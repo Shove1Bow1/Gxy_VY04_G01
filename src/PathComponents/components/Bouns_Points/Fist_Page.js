@@ -6,7 +6,7 @@ const FirstPage = () =>{
     return(
         <div>
             <h2>0</h2>
-            <p className="size-text" >Giá trị VND0</p>
+            <p className="size-text" >Giá trị VND</p>
             <hr/>
             <center>
                 <p className="padding-text">

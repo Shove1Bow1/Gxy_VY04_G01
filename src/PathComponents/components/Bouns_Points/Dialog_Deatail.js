@@ -21,7 +21,6 @@ class DialogDetail extends Component {
         </div>
         <hr class="my-1" />
 
-
         {/* ---------- */}
         <div>{this.props.children}</div>
       </div>

@@ -70,9 +70,9 @@
   /* ---------------------------------------------------------------------- */
 /* --------------------------------Dialog--------------------------------- */
 .dialogstyle{
-  width: 50%;
-  max-width: 100%;
-  height: 100%;
+  width: 30%;
+ 
+  height: 50%;
   margin: 0 auto;
   position: fixed;
   left: 50%;
@@ -124,16 +124,20 @@ nav{
   color: rgb(91, 90, 90)
 }
 .nav-item-left{
-  padding-right: 9em;
+  margin-left: 15%;
 
 }
 .nav-item-right{
-  padding-left: 9em;
+ margin-left: 50%;
  
 }
 .nav-item-center{
-  padding-right: 1em;
+  /* padding-right: 1em; */
+  margin-left: 35%;
  
+}
+.nav-mar{
+  height: 5%;
 }
 /* ----------------children_Page_Nav-------------------- */
 .size-text{

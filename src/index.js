@@ -11,7 +11,7 @@ import AppBounsPoints from './PathComponents/components/Bouns_Points/App_Bouns_P
 
 ReactDOM.render(
   <React.StrictMode>
-    <AppLogin/>
+    <AppBounsPoints/>
   </React.StrictMode>,
   document.getElementById('root')
 );
