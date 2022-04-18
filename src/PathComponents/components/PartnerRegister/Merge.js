@@ -14,6 +14,7 @@ const Register=()=>{
                 <DangKy />
                 <Routes>
                     <Route path='/' element={<DangKyFist />} />
+                    <Route path='/register' element={<DangKyFist />} />
                     <Route path='/loginpar' element={<DangNhapPartner />} />
                     <Route path='/next1' element={<DangNhapTell />} />
                     <Route path='/next2' element={<EmailOtp />} />

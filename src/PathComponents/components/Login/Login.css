@@ -10,18 +10,17 @@
 }
 .text-left{
     margin-right: 100%;
+    font-weight: bold;
 }
 .mar-button{
   margin-top: 10px;
 }
 .text-left-2{
-  margin-right: 45%;
+  text-align: left;
+  font-weight: bold;
 }
 .text-left-3{
   margin-right: 65%;
-}
-.text-left-otp{
-  margin-right: 74%;
 }
 .mar-text{
   padding-top: 50em;
