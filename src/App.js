@@ -9,9 +9,8 @@ import MergeAdmin from "./PathComponents/components/Admin/Merge"
 const App = () => {
   return(
     <div>
-      <MergeAdmin/>
+      <MergeAdmin/> 
     </div>
- 
   )
 }
 export default App;
