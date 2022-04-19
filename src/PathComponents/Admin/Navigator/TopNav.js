@@ -13,7 +13,7 @@ const TopNav=()=>{
                     <h5>Admin</h5>
                 </div>
                 <div className="col-sm" style={{ textAlign: "end", textDecoration:"inherit"}}>
-                    <Link to="/Admin/Login" onClick={TopNav} style={{textDecoration:"none"}}>
+                    <Link to="/Admin" onClick={TopNav} style={{textDecoration:"none"}}>
                         <h5><span><i className="fa fa-power-off" aria-hidden="true"></i> Log out</span></h5>
                     </Link>
                 </div>

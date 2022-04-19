@@ -3,9 +3,20 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import PartnerPage from "./PathComponents/Partner/PartnerRouteController";
+import AdminPage from "./PathComponents/Admin/AdminRouteController";
+import CustomerPage from "./PathComponents/Customer/CustomerRouteController";
+import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
 ReactDOM.render(
   <React.StrictMode>
-      <App/>
+    <Router>
+      <Routes>
+        <Route path='/*' element={<CustomerPage/>}></Route>
+        <Route path='/Partner/*' element={  <PartnerPage/>}></Route>
+        <Route path='/Admin/*' element={<AdminPage/>}/>
+      </Routes>
+    </Router>
+    
   </React.StrictMode>,
   document.getElementById('root')
 );

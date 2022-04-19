@@ -11,16 +11,16 @@ import DangKy4 from "./DangKy/Buoc4";
 import "./PartnerRegister.css";
 const Register=()=>{
     return(
-        <Router >     
+        <div>     
                 <Title />
                 <Routes>
-                    <Route path='/Partner/DangNhap' element={<DangNhapPartner />} />    
-                    <Route path='/Partner/DangKy/next1' element={<DangKy1 />} />
-                    <Route path='/Partner/DangKy/next2' element={<DangKy2 />} />
-                    <Route path='/Partner/DangKy/next3' element={<DangKy3 />} />
-                    <Route path='/Partner/DangKy/next4' element={<DangKy4 />} />
+                    <Route path='/DangNhap' element={<DangNhapPartner />} />    
+                    <Route path='/DangKy/next1' element={<DangKy1 />} />
+                    <Route path='/DangKy/next2' element={<DangKy2 />} />
+                    <Route path='/DangKy/next3' element={<DangKy3 />} />
+                    <Route path='/DangKy/next4' element={<DangKy4 />} />
                 </Routes> 
-        </Router>   
+        </div>   
     )
 }
 export default Register;

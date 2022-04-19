@@ -1,23 +1,23 @@
 import React from "react";
 import { BrowserRouter as Router,Routes,Route  } from "react-router-dom";
 import Login from "./Login";
-import LoginEmail from "./LoginEmail";
 import "./Login.css";
-import LoginTell from "./LoginTell";
-import LoginOtp from "./LoginOtp";
+import LoginEmail from "./Email";
+import LoginTell from "./Tellephone";
+import LoginOtp from "./TellephoneOtp";
 import '../../../App.css';
 
 const AppLogin=()=>{
     return(
-        <Router>
+        <div>
             <Login />
             <Routes>
                 <Route path='/' element={<LoginEmail />} />
-                <Route path='/loginemail' element={<LoginEmail />} />
-                <Route path='/logintell' element={<LoginTell />} />
-                <Route path='/otp' element={<LoginOtp />} />
+                <Route path='/Tellephone' element={<LoginTell />} />
+                <Route path='/TellephoneOtp' element={<LoginOtp />} />
             </Routes>
-        </Router>
+        </div>
+           
          
     )
 }

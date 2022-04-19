@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 
 
-const LoginTell = () => {
+const LoginOtp = () => {
     return(
 
 <section style={{background:" #508bfc"}}>
@@ -21,8 +21,8 @@ const LoginTell = () => {
             </div>
 
             <div class="form-outline mb-4">
-                <label class="form-label text-left" for="typePasswordX-2">Password</label>
-                <input type="password" id="typePasswordX-2" class="form-control form-control-lg" />             
+                <label class="form-label text-left" for="typePasswordX-2">OTP</label>
+                <input type="tel" id="typePasswordX-2" class="form-control form-control-lg size-box" />             
             </div>
 
             {/* <!-- Checkbox --> */}
@@ -36,7 +36,7 @@ const LoginTell = () => {
 
             <hr class="my-4"/>
 
-            <p class="text-left-2"><Link to="/loginemail"><b class="colorlogo" >Use Email</b></Link>&ensp;or&ensp;<Link to="/otp"><b class="colorlogo" >OTP</b></Link></p>
+            <p class="text-left-2"><Link to="/DangNhap/Tellephone"><b class="colorlogo" >Use Phone Number</b></Link>&ensp;or&ensp;<Link to="/DangNhap"><b class="colorlogo" >Email</b></Link></p>
 
             <button class="btn btn-lg btn-block btn-primary button-size mar-button " style={{background:" #dd4b39"}}
               type="submit"><i class="fab fa-google me-2"></i> Sign in with google</button>
@@ -54,4 +54,4 @@ const LoginTell = () => {
 </section>
     )
 }
-export default LoginTell
+export default LoginOtp

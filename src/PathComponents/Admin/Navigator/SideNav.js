@@ -1,7 +1,5 @@
 import React from "react";
 import {  Link  } from "react-router-dom";
-import Rules from "./Manager/Rules";
-import Services from "./Manager/Services";
 const TopNav=()=>{
     
     return (

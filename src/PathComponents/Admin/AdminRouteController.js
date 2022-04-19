@@ -4,12 +4,10 @@ import Login from "./Login/Login.js";
 import Manager from "./Manager";
 function Render(){
     return(
-        <Router>
-            <Routes>
-                <Route path="/Admin/Login" element={<Login/>}/>
-                <Route path="/Admin/*" element={<Manager/>}/>
-            </Routes>
-        </Router>
+        <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/*" element={<Manager />} />
+        </Routes>
     )
 }
 export default Render;

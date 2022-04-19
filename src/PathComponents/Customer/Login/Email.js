@@ -35,7 +35,7 @@ const LoginEmail = () => {
 
                   <hr class="my-4" />
 
-                  <p class="text-left-2 "><Link to="/logintell"><b class="colorlogo" >Use Phone Number</b></Link>&ensp;or&ensp;<Link to="/otp"><b class="colorlogo" >OTP</b></Link></p>
+                  <p class="text-left-2 "><Link to="/DangNhap/Tellephone"><b class="colorlogo" >Use Phone Number</b></Link>&ensp;or&ensp;<Link to="/DangNhap/TellephoneOtp"><b class="colorlogo" >OTP</b></Link></p>
                 </div>
               </div>
             </div>
