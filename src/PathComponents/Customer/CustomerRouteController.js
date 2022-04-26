@@ -7,11 +7,11 @@ import Register from './Register/Register';
 
 const App = () => {
   return (
-    <div className="App">
+    <div>
       <Routes> 
         <Route path='/' element={<Homepage/>}/>
         <Route path='/Login/*' element={<Login/>}></Route>
-        <Route path='/Register' element={<Register />} />
+        <Route path='/Register' element={<Register/>} />
       </Routes>
     </div>
     

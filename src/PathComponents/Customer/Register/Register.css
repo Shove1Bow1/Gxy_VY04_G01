@@ -14,3 +14,6 @@
     direction: ltr;
     display:flex;
 }
+.form-control{
+    text-align: start;
+}

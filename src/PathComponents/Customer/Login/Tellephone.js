@@ -36,16 +36,7 @@ const LoginTell = () => {
 
             <hr class="my-4"/>
 
-            <p class="text-left-2"><Link to="/DangNhap"><b class="colorlogo" >Use Email</b></Link>&ensp;or&ensp;<Link to="/DangNhap/TellephoneOtp"><b class="colorlogo" >OTP</b></Link></p>
-
-            <button class="btn btn-lg btn-block btn-primary button-size mar-button " style={{background:" #dd4b39"}}
-              type="submit"><i class="fab fa-google me-2"></i> Sign in with google</button>
-            <div class="mar-button">
-              
-            <button class="btn btn-lg btn-block btn-primary mb-2 button-size " style={{background: "#3b5998"}}
-              type="submit"><i class="fab fa-facebook-f me-2"></i>Sign in with facebook</button>
-
-            </div>
+            <p class="text-left-2"><Link to="/Login"><b class="colorlogo" >Use Email</b></Link>&ensp;or&ensp;<Link to="/Login/TellephoneOtp"><b class="colorlogo" >OTP</b></Link></p>
           </div>
         </div>
       </div>
