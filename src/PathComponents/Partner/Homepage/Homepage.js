@@ -6,7 +6,6 @@ import SecondBody from "./SecondBody/SecondBody.js";
 import ThirdBody from "./ThirdBody/ThirdBody.js";
 export default function PartnerHomepage(){
     return (  
-   
         <div className="all-homepage">
             <div className="head-homepage">
                 <NavigateHomepage />

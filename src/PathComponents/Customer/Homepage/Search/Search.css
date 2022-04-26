@@ -1,0 +1,29 @@
+.container{
+    border-radius: 5px;
+    background-color: ghostwhite;
+    box-shadow: 1px 1px 4px gray;
+    padding: 20px;
+    width: 80%;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+.text-name{
+    font-size: 14px;
+    font-weight: bold;
+}
+.form-control{
+    background-color: white;
+}
+.btn-search{
+    font-weight: bold;
+    background-color: rgb(255, 94, 31);
+    border: 0;
+    border-radius: 5px;
+    font-size: 15px;
+    padding: 7px 12px;
+    color: white;
+    width: 100%;
+}
+.btn-search:hover{
+    background-color: brown;
+}

@@ -5,7 +5,7 @@ import "./Login.css";
 import LoginEmail from "./Email";
 import LoginTell from "./Tellephone";
 import LoginOtp from "./TellephoneOtp";
-import '../../../App.css';
+import '../App.css';
 
 const AppLogin=()=>{
     return(

@@ -1,6 +1,4 @@
-.App {
-    text-align: center;
-  }
+
   nav {
     display: flex;
     justify-content: space-around;
@@ -149,7 +147,7 @@
     background: linear-gradient(to right, #0062E6, #33AEFF);
     padding-left: 15%;
     padding-right: 15%;
-   position: fixed;
+   
 }
 .center{
     text-align: center;
