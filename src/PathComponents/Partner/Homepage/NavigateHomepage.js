@@ -6,7 +6,7 @@ export default function NavigateBarHomepage(){
             <div className='container-fluid top-nav'>
                 <div className='row'>
                     <div className='col-lg-4'>
-                        <img src={require('../Img/traveloka.png')} className="traveloka-icon"></img>
+                        <img src={require('./Img/traveloka.png')} className="traveloka-icon"></img>
                     </div>
                     <div className='row line'>
                         <div className='col-sm-5' style={{paddingLeft:90+"px",width:60+"%",textAlign:"center"}}>

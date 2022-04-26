@@ -1,9 +1,18 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../PartnerRegisterAndLogin.css"
 const PartnerLogin = () => {
+  const [getEmail,setEmail]=useState("");
+  const [getPassword,setPassword]=useState("");
+  async function Login(){
+    await axios.post("http://localhost:8020/Partner/Login",
+    {
+      
+    })
+  }
   return (
-    <div className="bg-register ">
+    <div className="bg-register">
       <div class=" py-5 h-100">
         <div class="row">
           <div class="col-lg-10 col-xl-9 mx-auto">
@@ -27,13 +36,13 @@ const PartnerLogin = () => {
                     <label>Your Email address:</label>
                   </div>
                   <div class="form-label-group">
-                    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required/>
+                    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" onChange={(e)=>setEmail(e.target.value)} required/>
                     <label for="inputEmail">Email address</label>
                   </div>
                   <div>
                     <label>Password: </label>
                     <div class="form-label-group">
-                      <input type="password" id="inputPass" class="form-control" placeholder="Password"/>
+                      <input type="password" id="inputPass" class="form-control" placeholder="Password" onChange={(e)=>setPassword(e.target.value)} required/>
                       <label for="inputPass">Password</label>
                     </div>
                   </div>
