@@ -1,0 +1,33 @@
+.nav-link{
+    list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: white;
+  }
+  .nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 10vh;
+    background-color: white;
+  }
+.h2, h2 {
+    color: black;
+}
+.li{
+    float: left;
+    color: black;
+}
+.li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  li a:hover {
+  color: white;
+  background-color:#3366CC;
+  font-weight: bold;
+}

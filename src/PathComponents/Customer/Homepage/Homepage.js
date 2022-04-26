@@ -14,7 +14,7 @@ export default function Homepage(){
             <div className="row">
                 <div className="col">
                     <Fragment>
-                        <Banner />
+                        <Banner/>
                         <Search />
                         <Promotion />
                         <Partner />

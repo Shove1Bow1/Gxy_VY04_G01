@@ -4,7 +4,7 @@ import './App.css';
 import Homepage from './Homepage/Homepage';
 import Login from './Login/LoginController'
 import Register from './Register/Register';
-
+import Profile from './Profile/ProfileController';
 const App = () => {
   return (
     <div>
@@ -12,6 +12,7 @@ const App = () => {
         <Route path='/' element={<Homepage/>}/>
         <Route path='/Login/*' element={<Login/>}></Route>
         <Route path='/Register' element={<Register/>} />
+        <Route path='/Profile/*' element={<Profile/>}/>
       </Routes>
     </div>
     
