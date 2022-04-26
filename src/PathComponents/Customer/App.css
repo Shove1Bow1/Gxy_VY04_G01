@@ -10,9 +10,9 @@
   background-color: rgb(48, 131, 255);
 }
 .nav-link{
-  width: 50%;
+  width: 45%;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
   align-items: center;
   list-style: none;
 }

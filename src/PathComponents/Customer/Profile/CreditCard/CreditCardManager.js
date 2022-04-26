@@ -53,12 +53,12 @@ export default function App() {
   };
   function EmptyCard() {
     return (
-      <button className="EC-Body" onClick={()=>setShow(true)}>
-        <div className="Card-Header">
-          <span> <FontAwesomeIcon icon={faPlusCircle} size="3x" /></span>
-          <p>Add Card</p>
-        </div>
-      </button>
+        <button className="EC-Body" onClick={()=>setShow(true)}>
+          <div className="Card-Header">
+            <span> <FontAwesomeIcon icon={faPlusCircle} size="3x" /></span>
+            <p>Add Card</p>
+          </div>
+        </button>
     )
   }
   return (
