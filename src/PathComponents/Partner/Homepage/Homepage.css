@@ -12,7 +12,7 @@
 .top-nav{
     position: relative;
     top: 0;
-    height: 100px;
+    height: 60px;
     width: 100%;
     background-color: rgb(67, 219, 219);
 }
@@ -125,11 +125,11 @@ ul{
 .child-footer-homepage{
     position: absolute;
     margin-top: 100px;
-    width: 80%;
+    width: 100%;
     height: 300px;
-    margin-left: 10%;
+
     border-radius: 10% 10% 0 0; 
-    background: rgb(245, 236, 226);
+    background: rgb(252, 249, 248);
     display: flex;
     justify-content: center;
 }
