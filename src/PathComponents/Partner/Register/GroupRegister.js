@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import Title from "./Title";
 import logo from "./Img/confirm.png"
@@ -10,6 +11,16 @@ export default function PartnerRegister(){
     const [getLastname,setLastname]=useState("");
     const [getAppID,setAppID]=useState("");
     const [getPassword,setPassword]=useState("");
+    const [getPasswordConfirm,setPasswordConfirm]=useState("");
+    const [getValidatePassword,setValidatePassword]=useState("");
+    function RegisterToDatabase(){
+        axios.post("http://localhost:8020/Partner/Register",{
+            PARTNER_EMAIL: getEmail,
+            PARTNER_PASSWORD: getPassword,
+            PARTNER_NAME: getLastname+" "+getFirstname,
+            APP_ID:getAppID,
+        }).then((response)=>{console.log(response)});
+    }
     // function Register()
     const Step1 =()=>{
         return(
@@ -35,7 +46,7 @@ export default function PartnerRegister(){
                                         </div>
                                         <select value={getAppID} onChange={(e)=>setAppID(e.target.value)} className="service-form-select-register form-select">
                                             <option value="" disabled>Please choose your service</option>
-                                            <option value="VY04MB" onClick={(e)=>{setAppID(e.target.value)}}>Flight</option>
+                                            <option value="VY04MB">Flight</option>
                                             <option value="VY04TX">Car Rentals</option>
                                             <option value="VY04KS">Hotel</option>
                                             <option value="VY04DDSB">Airport Transfer</option>
@@ -79,12 +90,12 @@ export default function PartnerRegister(){
                          
                           <div><label>Last Name: </label></div>
                           <div class="form-label-group">
-                            <input type="text" id="inputLname" autoFocus class="form-control" placeholder="Last Name" />
+                            <input type="text" id="inputLname" class="form-control" autoFocus placeholder="Last Name" value={getLastname} onChange={(e)=>setLastname(e.target.value)} />
                             <label for="inputLname">Last Name</label>
                           </div> 
                           <div><label>First Name: </label></div>
                           <div class="form-label-group">
-                            <input type="text"  id="inputFname" class="form-control" placeholder="First Name" autoFocus value={getFirstname} onChange={(e)=>setFirstname(e.target.value)}/>
+                            <input type="text"  id="inputFname" class="form-control" placeholder="First Name"  value={getFirstname} onChange={(e)=>setFirstname(e.target.value)}/>
                             <label for="inputFname">First Name</label>
                           </div>
                           <hr />
@@ -121,12 +132,16 @@ export default function PartnerRegister(){
                                             <label>Password: </label>
                                         </div>
                                         <div class="form-label-group">
-                                            <input type="password" id="inputPass" class="form-control" placeholder="Password" autoFocus />
+                                            <input type="password" id="inputPass" class="form-control" placeholder="Password" value={getPassword} onChange={(e)=>setPassword(e.target.value)} autoFocus />
                                             <label for="inputPass">Password</label>
+                                        </div>
+                                        <div class="form-label-group">
+                                            <input type="password" id="inputPassConfirm" autoFocus class="form-control" placeholder="Confirm Password" value={getPasswordConfirm} onChange={(e)=>setPasswordConfirm(e.target.value)} />
+                                            <label for="inputPassConfirm">Confirm Password</label>
                                         </div>
                                         <hr />
                                         <button class="btn btn-lg btn-primary btn-block text-uppercase" onClick={()=>setPageId(2)}>Back</button>
-                                        <button class="btn btn-lg btn-primary btn-block text-uppercase"  onClick={()=>setPageId(4)}>Next</button>
+                                        <button class="btn btn-lg btn-primary btn-block text-uppercase"  onClick={()=>RegisterToDatabase()}>Next</button>
                                         <hr className="my-4" />
                                         <div className="col-s-4">
                                         </div>

@@ -6,6 +6,11 @@ class Register extends Component{
         super(props)
         this.state={
             Email:'',
+            FullName:'',
+            Password:'',
+            ConfirmPassword:'',
+            Telephone:'',
+            Gender:false
         }
 
         this.changeEmailIdHandler=this.changeEmailIdHandler.bind(this);
@@ -13,11 +18,11 @@ class Register extends Component{
         this.changePasswordHandler=this.changePasswordHandler.bind(this);
         this.changeConfirmPasswordHandler=this.changeConfirmPasswordHandler.bind(this);
         this.changeTelephoneHandler=this.changeTelephoneHandler.bind(this);
-        this.saveStudent=this.saveStudent.bind(this);
+        this.saveCustomer=this.saveCustomer.bind(this);
     }
 
     changeEmailIdHandler=(event)=>{
-        this.setState({emailId: event.target.value});
+        this.setState({Email: event.target.value});
     }
 
     changeFullNameHandler=(event)=>{
@@ -35,11 +40,13 @@ class Register extends Component{
     changeTelephoneHandler=(event)=>{
         this.setState({Telephone: event.target.value});
     }
-
-    saveStudent=(e)=>{
+    changeGenderHandler=(event)=>{
+        this.setState({Gender: event.target.value});
+    }
+    saveCustomer=(e)=>{
         e.preventDefault();
-        let student={emailId: this.state.emailId,firstName: this.state.firstName,lastName: this.state.lastName,BirthDay: this.state.BirthDay,Gender: this.state.Gender};
-        console.log('student=>'+JSON.stringify(student));
+        let customer={CUSTOMER_EMAIL: this.state.Email,FULL_NAME: this.state.FullName,CUS_PASSWORD: this.state.Password,GENDER: this.state.Gender,};
+        console.log('student=>'+JSON.stringify(customer));
     }
     render(){
         return(
@@ -117,18 +124,18 @@ class Register extends Component{
                                     <div style={{fontWeight:"bolder", padding:"2px"}}>Tháng Sinh</div>
                                     <select name="Month">
                                         <option value="0">Chọn Tháng</option>
-                                        <option value="0">1</option>
-                                        <option value="0">2</option>
-                                        <option value="0">3</option>
-                                        <option value="0">4</option>
-                                        <option value="0">5</option>
-                                        <option value="0">6</option>
-                                        <option value="0">7</option>
-                                        <option value="0">8</option>
-                                        <option value="0">9</option>
-                                        <option value="0">10</option>
-                                        <option value="0">11</option>
-                                        <option value="0">12</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
 
                                         </select>
                                     </div>
@@ -136,15 +143,15 @@ class Register extends Component{
                                         <div style={{fontWeight:"bolder", padding:"2px"}}>Năm Sinh</div>
                                     <select name="Year">
                                         <option value="0">Chọn Năm</option>
-                                        <option value="0">2021</option>
-                                        <option value="0">2020</option>
-                                        <option value="0">2019</option>
-                                        <option value="0">2018</option>
-                                        <option value="0">2017</option>
-                                        <option value="0">2016</option>
-                                        <option value="0">2015</option>
-                                        <option value="0">2014</option>
-                                        <option value="0">2013</option>
+                                        <option value="2021">2021</option>
+                                        <option value="2020">2020</option>
+                                        <option value="2019">2019</option>
+                                        <option value="2018">2018</option>
+                                        <option value="2017">2017</option>
+                                        <option value="2016">2016</option>
+                                        <option value="2015">2015</option>
+                                        <option value="2014">2014</option>
+                                        <option value="2013">2013</option>
                                         <option value="0">2012</option>
                                         <option value="0">2011</option>
                                         <option value="0">2010</option>
@@ -263,10 +270,10 @@ class Register extends Component{
                                     </div>
                                     <div class="col-sm-3">
                                         <div style={{fontWeight:"bolder", padding:"2px"}}>Giới Tính</div>
-                                            <select name="Gender">
-                                                <option value="0">Chọn Giới tính</option>
+                                            <select name="Gender" value={this.state.Gender} onChange={this.changeGenderHandler}>
+                                                <option value="-1" disabled>Chọn Giới tính</option>
                                                 <option value="0">Nam</option>
-                                                <option value="0">Nữ</option>
+                                                <option value="1">Nữ</option>
                                             </select>
                                         </div>
                                     </div>

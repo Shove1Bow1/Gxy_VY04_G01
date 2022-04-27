@@ -55,17 +55,14 @@ class MyBounsPoints extends Component {
           </div>
           <DialogDetail
             isOpen={this.state.isOpen}
-            onClose={(e) => this.setState({ isOpen: false })}
-          >
+            onClose={(e) => this.setState({ isOpen: false })}>
             <div>
-              <Router>
                 <Nav />
                 <Routes>
                   <Route path="/" element={<FirstPage />} />
                   <Route path="/second" element={<SecondPage />} />
                   <Route path="/third" element={<ThirdPage />} />
                 </Routes>
-              </Router>
             </div>
           </DialogDetail>
           <div class="bg-clor mar-text"></div>

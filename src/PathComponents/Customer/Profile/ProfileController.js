@@ -17,7 +17,6 @@ export default function ProfileController(){
                     <Route path="/Creditcard" element={<CreditCard />} />
                 </Routes>
             </div>
-           
         </div>
     )
 }
