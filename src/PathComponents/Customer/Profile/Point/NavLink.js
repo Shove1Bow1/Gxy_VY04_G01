@@ -1,39 +1,24 @@
-import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import React, { Component } from "react";
+import { Link} from "react-router-dom";
 
-const Nav = () => {
+export default function NavLink(props) {
   return (
-    <div>
-      <div class="row nav-link">
-        <div class="col-md-4">
-        <li className="nav-item-left">
-              <button class="text-color-nav button-nav-item">
-                <Link to="/" class="text-color-nav"><b>Khả dụng</b></Link>
-              </button>
-            </li>
-        </div>
-        <div  class="col-md-4">
-        <li className="nav-item-center">
-              <button class="text-color-nav button-nav-item"> <Link to="/second" class="text-color-nav"><b>Đang chờ</b></Link></button>
-            </li>
-        </div>
-        <div  class="col-md-4">
-        <li className="nav-item-right">
-              <button class="text-color-nav button-nav-item"><Link to="/third" class="text-color-nav"><b>Lịch sử</b></Link> </button>
-            </li>
-        </div>
+    <div class="row nav-link dialog-point">
+      <div class={props.getData===1?"col-lg-4 bottom-line":"col-lg-4"}>
+        <li className="nav-item-left" >
+          <button class="text-color-nav button-nav-item" onClick={() =>props.setData(1)}><b>Khả dụng</b></button>
+        </li>
       </div>
-      {/* <nav className="nav-mar">
-        <div className="pad">
-          <ul className="nav-link">
-           
-            
-           
-          </ul>
-        </div>
-      </nav> */}
-      <hr class="my-1" />
+      <div class={props.getData===2?"col-lg-4 bottom-line":"col-lg-4"}>
+        <li className="nav-item-center">
+          <button class="text-color-nav button-nav-item" onClick={() =>props.setData(2)}><b>Đang chờ</b></button>
+        </li>
+      </div>
+      <div class={props.getData===3?"col-lg-4 bottom-line":"col-lg-4"}>
+        <li className="nav-item-right">
+          <button class="text-color-nav button-nav-item" onClick={() =>props.setData(3)}><b>Lịch sử</b></button>
+        </li>
+      </div>
     </div>
-  );
-};
-export default Nav;
+  )
+}

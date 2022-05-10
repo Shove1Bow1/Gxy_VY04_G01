@@ -1,8 +1,5 @@
 import React from "react";
 import img from "./second_page.png"
-
-
-
 const SecondPage = () =>{
     return(
         <div>

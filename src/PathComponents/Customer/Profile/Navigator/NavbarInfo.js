@@ -10,11 +10,11 @@ function Navbar(prop) {
             <form>
                 <div className="list-group">
                     <ul className="navbar-nav">
-                        <li><Link to='/' className="list-group-item list-group-item-action">
+                        <li><Link to='/Profile/Point' className="list-group-item list-group-item-action">
                             <FaCoins />
                             <span>Điểm thưởng của tôi</span></Link>
                         </li>
-                        <li><Link to='/' className="list-group-item list-group-item-action">
+                        <li><Link to='/Profile/CreditCard' className="list-group-item list-group-item-action">
                             <FaCreditCard />
                             <span>Thẻ của tôi</span></Link>
                         </li>
@@ -39,7 +39,7 @@ function Navbar(prop) {
                             <FaTag />
                             <span>Khuyến mãi</span></Link>
                         </li>
-                        <li><Link to='//Navigator/Navagation' className="list-group-item list-group-item-action">
+                        <li><Link to='/Profile' className="list-group-item list-group-item-action">
                             <FaCog />
                             <span>Tài Khoản</span></Link>
                         </li>
