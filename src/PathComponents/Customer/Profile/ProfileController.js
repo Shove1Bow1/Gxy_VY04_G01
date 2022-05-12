@@ -4,6 +4,7 @@ import SideBar from "./Navigator/NavbarInfo";
 import ProfileSetting from "./EditProfile/ProfileSetting";
 import CreditCard from "./CreditCard/CreditCardManager";
 import Point from "./Point/App_Bouns_Points";
+import "./ProfileController.css"
 export default function ProfileController(){
     return (
         <div className="customer-profile-controller">

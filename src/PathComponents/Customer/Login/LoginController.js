@@ -5,20 +5,16 @@ import "./Login.css";
 import LoginEmail from "./Email";
 import LoginTell from "./Tellephone";
 import LoginOtp from "./TellephoneOtp";
-import '../App.css';
-
 const AppLogin=()=>{
     return(
-        <div>
+        <>
             <Login />
             <Routes>
                 <Route path='/' element={<LoginEmail />} />
                 <Route path='/Tellephone' element={<LoginTell />} />
                 <Route path='/TellephoneOtp' element={<LoginOtp />} />
             </Routes>
-        </div>
-           
-         
+        </>
     )
 }
 export default AppLogin;

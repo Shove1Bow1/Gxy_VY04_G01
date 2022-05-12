@@ -7,10 +7,10 @@ import Propose from "./Propose/Propose";
 import Promotion from "./Promotion/Promotion";
 import Advantage from "./Advantage/Advantage";
 import Sidebar from "./SideBar/Sidebar";
+import MainDiscovery from "./Discovery/MainDiscovery.js"
 export default function Homepage(){
     return(
         <div className="container-fluid">  
-        <Sidebar />
             <div className="row">
                 <div className="col">
                     <Fragment>
@@ -21,6 +21,7 @@ export default function Homepage(){
                         <Propose />
                         <Advantage />
                         <Explore />
+                        <MainDiscovery/>
                     </Fragment>
                 </div>
             </div>          

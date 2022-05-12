@@ -1,20 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import PartnerPage from "./PathComponents/Partner/PartnerRouteController";
 import CustomerPage from "./PathComponents/Customer/CustomerRouteController";
 // import Card from "./PathComponents/Customer/CreditCard/CreditCardManager"
 import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
-import RegisterPage from "./PathComponents/Customer/Register/Register";
-import Homepage  from './PathComponents/Partner/Homepage/Homepage';
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Routes>
         <Route path='/*' element={<CustomerPage/>}></Route>
         <Route path='/Partner/*' element={<PartnerPage/>}></Route>
-        <Route path='/DangKy/*' element={<RegisterPage/>}></Route>
       </Routes>
     </Router>
     
