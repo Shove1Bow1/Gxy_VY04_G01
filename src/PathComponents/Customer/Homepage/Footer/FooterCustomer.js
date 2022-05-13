@@ -7,7 +7,7 @@ const FooterHomepage = () => {
             <div className="container-customize-footer">
                 <div className="col-lg-5-customize-footer">
                     <div className="big-img-footer">
-                        <img srcSet="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/8/86afd0785f5505dd6d584971576dea27.svg" />
+                        <img srcSet="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/8/86afd0785f5505dd6d584971576dea27.svg" width="70%"/>
                     </div>
                     <div className="cover-iee">
                         <img srcSet="https://ik.imagekit.io/tvlk/image/imageResource/2017/12/13/1513150198216-822560165b4cfa5d5ac17a7987028b03.svg?tr=h-35,q-75" />
@@ -24,9 +24,9 @@ const FooterHomepage = () => {
                             <p style={{ color: "white" }}>Liên Hệ Với Chúng Tôi</p>
                         </button>
                     </Link>
-                    <h3 style={{ marginLeft: 10 + "%", color: "white" }}>Đối tác thanh toán</h3>
+                    <h3 style={{marginTop:2+"%", marginLeft: 10 + "%", color: "white",maxWidth:"80%" }}>Đối tác thanh toán</h3>
                     <div style={{ marginLeft: 3 + "%" }}>
-                        <img src={require("./footer_img_1.PNG")}></img>
+                        <img src={require("./footer_img_1.PNG")} width="100%"></img>
                     </div>
 
                 </div>
