@@ -1,8 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom"; 
-
-
-
 const LoginEmail = () => {
     return(
       <section class="vh-100 " style={{ background: " #508bfc" }}>

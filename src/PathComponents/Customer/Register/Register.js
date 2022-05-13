@@ -10,15 +10,8 @@ class Register extends Component{
             Password:'',
             ConfirmPassword:'',
             Telephone:'',
-            Gender:false
+            Gender:2
         }
-
-        this.changeEmailIdHandler=this.changeEmailIdHandler.bind(this);
-        this.changeFullNameHandler=this.changeFullNameHandler.bind(this);
-        this.changePasswordHandler=this.changePasswordHandler.bind(this);
-        this.changeConfirmPasswordHandler=this.changeConfirmPasswordHandler.bind(this);
-        this.changeTelephoneHandler=this.changeTelephoneHandler.bind(this);
-        this.saveCustomer=this.saveCustomer.bind(this);
     }
 
     changeEmailIdHandler=(event)=>{
@@ -270,8 +263,8 @@ class Register extends Component{
                                     </div>
                                     <div class="col-sm-3">
                                         <div style={{fontWeight:"bolder", padding:"2px"}}>Giới Tính</div>
-                                            <select name="Gender" value={this.state.Gender} onChange={this.changeGenderHandler}>
-                                                <option value="-1" disabled>Chọn Giới tính</option>
+                                            <select name="Gender" onChange={this.changeGenderHandler}>
+                                                <option value="2">Chọn Giới tính</option>
                                                 <option value="0">Nam</option>
                                                 <option value="1">Nữ</option>
                                             </select>

@@ -20,7 +20,7 @@ export default function PartnerRegister(){
     console.log(getLastname);
     console.log(getPassword);
     function RegisterToDatabase(){
-        axios.post("http://localhost:8020/Partner/Register",{
+        axios.post("https://gxyvy04g01backend-production.up.railway.app/Partner/Register",{
             PARTNER_EMAIL: getEmail,
             PARTNER_PASSWORD: getPassword,
             PARTNER_NAME: getLastname+" "+getFirstname,
