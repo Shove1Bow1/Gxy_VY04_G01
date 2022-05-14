@@ -34,7 +34,7 @@ const Step1 =(props)=>{
                                         <option value="VY04NH">Restaurants</option>
                                     </select>
                                     <hr />
-                                    <button class="btn btn-lg btn-primary btn-block text-uppercase" onClick={() => props.onPage(2)}>Next</button>
+                                    <button class="btn btn-lg btn-primary btn-block text-uppercase" onClick={props.getEmail?() => props.onPage(2):()=>props.onPage(1)}>Next</button>
                                     <hr className="my-4" />
                                     <div className="col-s-4">
                                     </div>

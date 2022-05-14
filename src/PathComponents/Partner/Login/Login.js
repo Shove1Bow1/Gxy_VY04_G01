@@ -3,13 +3,16 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../PartnerRegisterAndLogin.css"
 const PartnerLogin = () => {
-  const [getEmail,setEmail]=useState("");
-  const [getPassword,setPassword]=useState("");
-  async function Login(){
+  const [getEmail, setEmail] = useState("");
+  const [getPassword, setPassword] = useState("");
+  const [getAppID, setAppID] = useState("");
+  async function Login() {
     await axios.post("http://localhost:8020/Partner/Login",
-    {
-      
-    })
+      {
+        PARTNER_EMAIL: getEmail,
+        PARTNER_PASSWORD: getPassword,
+        APP_ID:getAppID
+      })
   }
   return (
     <div className="bg-register">
@@ -36,21 +39,35 @@ const PartnerLogin = () => {
                     <label>Your Email address:</label>
                   </div>
                   <div class="form-label-group">
-                    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" onChange={(e)=>setEmail(e.target.value)} required/>
+                    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" onChange={(e) => setEmail(e.target.value)} required />
                     <label for="inputEmail">Email address</label>
                   </div>
                   <div>
                     <label>Password: </label>
                     <div class="form-label-group">
-                      <input type="password" id="inputPass" class="form-control" placeholder="Password" onChange={(e)=>setPassword(e.target.value)} required/>
+                      <input type="password" id="inputPass" class="form-control" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
                       <label for="inputPass">Password</label>
                     </div>
                   </div>
                   <div>
+                    <label>Select a service</label>
+                    <select value={getAppID} onChange={(e) => setAppID(e.target.value)} className="service-form-select-register form-select">
+                      <option value="" disabled>Please choose your service</option>
+                      <option value="VY04MB">Flight</option>
+                      <option value="VY04TX">Car Rentals</option>
+                      <option value="VY04KS">Hotel</option>
+                      <option value="VY04DDSB">Airport Transfer</option>
+                      <option value="VY04BTCH">Holiday Stays</option>
+                      <option value="VY04TDL">Xperience</option>
+                      <option value="VY04NH">Restaurants</option>
+                    </select>
+                  </div>
+               
+                  <div>
                     <p><b className="colorlogo">Forgot your password!</b></p>
                   </div>
                   <hr />
-                  <button class="btn btn-lg btn-primary btn-block text-uppercase button-size">
+                  <button class="btn btn-lg btn-primary btn-block text-uppercase button-size" onClick={Login}>
                     Login
                   </button>
                   <hr className="my-4" />

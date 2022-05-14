@@ -1,7 +1,28 @@
-import React from "react";
-import { Link } from "react-router-dom"; 
+import axios from "axios";
+import React, { useState } from "react";
+import { Link,useLocation,useNavigate } from "react-router-dom"; 
 const LoginEmail = () => {
+    const [getEmail,setEmail]=useState("");
+    const [getPassword,setPassword]=useState("");
+    const [getValue,setValue]=useState([]);
+    const Navigate=useNavigate();
+    const setLocation=useLocation();
+    function runScript(){
+      axios.post("http://localhost:8020/Customer/LoginEmail", {
+        CUSTOMER_EMAIL: getEmail,
+        CUS_PASSWORD: getPassword,
+      }).then((res) => res).then((data) => {
+        console.log(data.data.length);
+        if (data.data.CUSTOMER_TOKEN!==undefined) {
+          setValue(data.data.length);
+        }
+      })
+      console.log(getValue.length>0);
+      return getValue;
+    }
+
     return(
+      
       <section class="vh-100 " style={{ background: " #508bfc" }}>
         <div class="container-login py-5 h-100">
           <div class="row d-flex justify-content-center align-items-center h-100">
@@ -13,12 +34,12 @@ const LoginEmail = () => {
 
                   <div class="form-outline mb-4">
                     <label class="form-label text-left" for="typeEmailX-2">Email</label>
-                    <input type="email" id="typeEmailX-2" class="form-control form-control-lg" />
+                    <input type="email" id="typeEmailX-2" value={getEmail} onChange={(e)=>setEmail(e.target.value)} class="form-control form-control-lg" />
                   </div>
 
                   <div class="form-outline mb-4">
                     <label class="form-label text-left" for="typePasswordX-2">Password</label>
-                    <input type="password" id="typePasswordX-2" class="form-control form-control-lg" />
+                    <input type="password" id="typePasswordX-2" value={getPassword} onChange={(e)=>setPassword(e.target.value)} class="form-control form-control-lg" />
                   </div>
 
                   {/* <!-- Checkbox --> */}
@@ -28,7 +49,7 @@ const LoginEmail = () => {
                     <label class="form-check-label" for="form1Example3"> Remember password </label>
                   </div>
 
-                  <button class="btn btn-primary btn-lg btn-block button-size " type="submit">Login</button>
+                  <button class="btn btn-primary btn-lg btn-block button-size " onClick={()=>runScript()?<p>aaa</p>:<p>nb</p>} type="submit">Login</button>
 
                   <hr class="my-4" />
 

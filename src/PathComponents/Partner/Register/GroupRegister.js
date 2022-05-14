@@ -23,7 +23,7 @@ export default function PartnerRegister(){
         axios.post("https://gxyvy04g01backend-production.up.railway.app/Partner/Register",{
             PARTNER_EMAIL: getEmail,
             PARTNER_PASSWORD: getPassword,
-            PARTNER_NAME: getLastname+" "+getFirstname,
+            PARTNER_NAME: getLastname,
             APP_ID:getAppID,
         }).then((response)=>{console.log(response)});
     }

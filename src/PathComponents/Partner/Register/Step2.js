@@ -19,16 +19,11 @@ const Step2 =(props)=>{
                       <div><h6> What should we call you?</h6></div>
                       <br />
                      
-                      <div><label>Last Name: </label></div>
+                      <div><label>Company: </label></div>
                       <div class="form-label-group">
-                        <input type="text" id="inputLname" class="form-control" placeholder="Last Name" value={props.getLastname} onChange={(e)=>props.onLastName(e.target.value)} />
-                        <label for="inputLname">Last Name</label>
+                        <input type="text" id="inputLname" class="form-control" placeholder="Company name" value={props.getLastname} onChange={(e)=>props.onLastName(e.target.value)} required/>
+                        <label for="inputLname">Company</label>
                       </div> 
-                      <div><label>First Name: </label></div>
-                      <div class="form-label-group">
-                        <input type="text"  id="inputFname" class="form-control" placeholder="First Name"  value={props.getFirstname} onChange={(e)=>props.onFirstName(e.target.value)}/>
-                        <label for="inputFname">First Name</label>
-                      </div>
                       <hr />
                         <button class="btn btn-lg btn-primary btn-block text-uppercase" onClick={()=>props.onPage(1)}>Back</button>
                         <button class="btn btn-lg btn-primary btn-block text-uppercase" onClick={()=>props.onPage(3)}>Next</button>
