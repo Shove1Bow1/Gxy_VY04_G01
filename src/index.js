@@ -1,19 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import PartnerPage from "./PathComponents/Partner/PartnerRouteController";
-import CustomerPage from "./PathComponents/Customer/CustomerRouteController";
-// import Card from "./PathComponents/Customer/CreditCard/CreditCardManager"
-import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
+import App from './App.js';
+import {AuthContextProvider} from "./Auth/SessionCustomer"
 ReactDOM.render(
-  <React.StrictMode>
-    <Router>
-      <Routes>
-        <Route path='/*' element={<CustomerPage/>}></Route>
-        <Route path='/Partner/*' element={<PartnerPage/>}></Route>
-      </Routes>
-    </Router>
-    
+  <React.StrictMode>  
+    <AuthContextProvider>
+        <App/>
+    </AuthContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

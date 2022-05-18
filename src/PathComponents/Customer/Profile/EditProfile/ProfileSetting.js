@@ -1,14 +1,14 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import "./navi.css";
 import CustomerProfile from "./CustomerProfile";
 import ChangePassword from "./ChangePassword";
 import { Container } from 'react-bootstrap';
-
-const ProfileSetting= () => {
+import {AuthContext} from '../../../../Auth/SessionCustomer'
+const ProfileSetting= (props) => {
     const [getPage,setPage]=useState(1);
-    return (
-        
+    const {CUSTOMER_TOKEN,CUSTOMER_ID,CUSTOMER_NAME}=useContext(AuthContext);
+        return (
             <div>
                 <nav className='nav'>
                     <ul className='nav-link'>
@@ -21,8 +21,8 @@ const ProfileSetting= () => {
                     </ul>
                 </nav>
                 <div>
-                    {getPage===1? <CustomerProfile />:null}
-                    {getPage===2? <ChangePassword/>:null}
+                    {getPage===1? <CustomerProfile tokenValue={CUSTOMER_TOKEN} idValue={CUSTOMER_ID}/>:null}
+                    {getPage===2? <ChangePassword tokenValue={CUSTOMER_TOKEN} idValue={CUSTOMER_ID}/>:null}
                 </div>
             </div>
         

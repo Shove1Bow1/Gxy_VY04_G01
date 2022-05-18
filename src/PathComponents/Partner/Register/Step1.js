@@ -14,7 +14,6 @@ const Step1 =(props)=>{
                             <div class="card-body">
                                 <h5 class="text-center">Traveloka <b className="colorlogo">TERA</b></h5>
                                 <br /><br />
-                                
                                     <div><h6>Create new Tera Account</h6></div>
                                     <div><p>List your property at Traveloka and let us help you connect with millions of guests!</p></div>
                                     <br />

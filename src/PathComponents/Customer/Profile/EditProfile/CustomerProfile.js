@@ -1,33 +1,115 @@
-import React, {Component} from 'react'
+import axios from 'axios';
+import React, {Component, useContext} from 'react'
 import './Profile.css';
-
-class StudentComponents extends Component{
-
+class CustomerProfile extends Component{
     constructor(props){
         super(props)
         this.state={
-            fullName:'',
+            FullName:'',
+            dateOfBirth:'',
+            monthOfBirth:'',
+            yearOfBirth:'',
+            Gender:'',
+            Address:'',
+            Telephone:'',
+            Token:this.props.tokenValue,
+            ID:this.props.idValue,
+            Data:[]
         }
-
-        this.changefullNameHandler=this.changefullNameHandler.bind(this);
-        this.changeCityHandler=this.changeCityHandler.bind(this);
     }
-
-    changefullNameHandler=(event)=>{
-        this.setState({fullname: event.target.value});
+    componentDidMount(){
+        console.log(this.state.Token);
+        axios.post("http://localhost:8020/Customer/getUserInfo",{
+            CUSTOMER_TOKEN:this.state.Token,
+            CUSTOMER_ID:this.state.ID
+        }).then(res=>res).then(data=>{
+            console.log(data.data[0].CUSTOMER_BIRTHDAY.length);
+            var Year="",Month="",Day="";
+            for(var i=0;i<data.data[0].CUSTOMER_BIRTHDAY.length;i++){
+                if(i<4){
+                    Year+=data.data[0].CUSTOMER_BIRTHDAY[i];
+                }
+                if(i>4&&i<7){
+                    Month+=data.data[0].CUSTOMER_BIRTHDAY[i];
+                }
+                if(i>7&&i<10){
+                    Day+=data.data[0].CUSTOMER_BIRTHDAY[i]
+                }
+                if (i>10){
+                    break;
+                }
+            }
+            console.log(Month);
+            this.setState({
+                FullName:data.data[0].CUSTOMER_NAME,
+                Gender:data.data[0].CUSTOMER_GENDER,
+                Address:data.data[0].Customer_ADRESS,
+                Month:Month,
+                Year:Year,
+                dateOfBirth:Day,
+            })
+        })
+    }
+    onCancelEvent=()=>{
+        axios.post("http://localhost:8020/Customer/getUserInfo",{
+            CUSTOMER_TOKEN:this.state.Token,
+            CUSTOMER_ID:this.state.ID
+        }).then(res=>res).then(data=>{
+            
+            this.setState({
+                FullName:data.data[0].CUSTOMER_NAME,
+                Gender:data.data[0].CUSTOMER_GENDER,
+                Address:data.data[0].CUSTOMER_ADDRESS,
+            })
+        })
+    }
+    saveNewInfo=()=>{
+        axios.post("http://localhost:8020/Customer/updateInfo",{
+            CUSTOMER_TOKEN:this.state.Token,
+            CUSTOMER_ID:this.state.ID,
+            CUSTOMER_NAME:this.state.FullName,
+            CUSTOMER_ADDRESS:this.state.Address,
+            CUSTOMER_GENDER:this.state.Gender,
+            CUSTOMER_BIRTHDAY:this.state.Year+"-"+this.state.Month+"-"+this.state.dateOfBirth,
+        }).then(message=>{window.alert(message.data[0].MESSAGE)})
+    }
+    changefullNameHandler=(event)=>{        
+        this.setState({
+            Fullname: event
+        });
     }
     changeCityHandler=(event)=>{
-        this.setState({City: event.target.value});
+        this.setState({
+            Address: event.target.value
+        });
     }
-
-    saveStudent=(e)=>{
-        e.preventDefault();
-        let student={emailId: this.state.emailId,firstName: this.state.firstName,lastName: this.state.lastName,BirthDay: this.state.BirthDay,Gender: this.state.Gender};
-        console.log('student=>'+JSON.stringify(student));
+    changeGender=(event)=>{
+        this.setState({
+            Gender:event.target.value
+        });
     }
-
+    changeDateOfBirth=(event)=>{
+        this.setState({
+            dateOfBirth:event.target.value
+        });
+    }
+    changeMonthOfBirth=(event)=>{
+        this.setState({
+            monthOfBirth:event.target.value
+        });
+    }
+    changeYearOfBirth=(event)=>{
+        this.setState({
+            yearOfBirth:event.target.value
+        });
+    }
+    changeTelephone=(event)=>{
+        this.setState({
+            Telephone:event.target.value
+        })
+    }
     cancel=(e)=>{
-        e.targer.reset();
+        e.target.reset();
     }
     render(){
         return(
@@ -49,213 +131,211 @@ class StudentComponents extends Component{
                                     <div className="form-group">
                                         <div style={{ fontWeight: "bolder" }}>Họ và Tên:</div>
                                         <input placeholder="VD:Họ và tên đầy đủ" name="fullName" className="form-control"
-                                            value={this.state.fullName} onChange={this.changefullNameHandler}></input>
+                                            value={this.state.FullName} onChange={(e)=>this.setState({FullName:e.target.value})}></input>
                                     </div>
                                     <div>Tên trong hồ sơ được rút ngắn từ họ và tên</div>
                                     <div class="row-select">
                                         <div class="col-sm-3">
                                             <div style={{ fontWeight: "bolder", padding: "2px" }}>Ngày Sinh</div>
-                                            <select name="Day">
-                                                <option value="0">Chọn ngày</option>
-                                                <option value="0">1</option>
-                                                <option value="0">2</option>
-                                                <option value="0">3</option>
-                                                <option value="0">4</option>
-                                                <option value="0">5</option>
-                                                <option value="0">6</option>
-                                                <option value="0">7</option>
-                                                <option value="0">8</option>
-                                                <option value="0">9</option>
-                                                <option value="0">10</option>
-                                                <option value="0">11</option>
-                                                <option value="0">12</option>
-                                                <option value="0">13</option>
-                                                <option value="0">14</option>
-                                                <option value="0">15</option>
-                                                <option value="0">16</option>
-                                                <option value="0">17</option>
-                                                <option value="0">18</option>
-                                                <option value="0">19</option>
-                                                <option value="0">20</option>
-                                                <option value="0">21</option>
-                                                <option value="0">22</option>
-                                                <option value="0">23</option>
-                                                <option value="0">24</option>
-                                                <option value="0">25</option>
-                                                <option value="0">26</option>
-                                                <option value="0">27</option>
-                                                <option value="0">28</option>
-                                                <option value="0">29</option>
-                                                <option value="0">30</option>
-                                                <option value="0">31</option>
+                                            <select name="Day" value={this.state.dateOfBirth} onChange={(e)=>this.setState({dateOfBirth:e.target.value})}>
+                                                <option value="0" selected disabled>Chọn ngày</option>
+                                                <option value="01">1</option>
+                                                <option value="02">2</option>
+                                                <option value="03">3</option>
+                                                <option value="04">4</option>
+                                                <option value="05">5</option>
+                                                <option value="06">6</option>
+                                                <option value="07">7</option>
+                                                <option value="08">8</option>
+                                                <option value="09">9</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                                <option value="13">13</option>
+                                                <option value="14">14</option>
+                                                <option value="15">15</option>
+                                                <option value="16">16</option>
+                                                <option value="17">17</option>
+                                                <option value="18">18</option>
+                                                <option value="19">19</option>
+                                                <option value="20">20</option>
+                                                <option value="21">21</option>
+                                                <option value="22">22</option>
+                                                <option value="23">23</option>
+                                                <option value="24">24</option>
+                                                <option value="25">25</option>
+                                                <option value="26">26</option>
+                                                <option value="27">27</option>
+                                                <option value="28">28</option>
+                                                <option value="29">29</option>
+                                                <option value="30">30</option>
+                                                <option value="31">31</option>
 
                                             </select>
                                         </div>
                                         <div class="col-sm-3">
                                             <div style={{ fontWeight: "bolder", padding: "2px" }}>Tháng Sinh</div>
-                                            <select name="Month">
-                                                <option value="0">Chọn Tháng</option>
-                                                <option value="0">1</option>
-                                                <option value="0">2</option>
-                                                <option value="0">3</option>
-                                                <option value="0">4</option>
-                                                <option value="0">5</option>
-                                                <option value="0">6</option>
-                                                <option value="0">7</option>
-                                                <option value="0">8</option>
-                                                <option value="0">9</option>
-                                                <option value="0">10</option>
-                                                <option value="0">11</option>
-                                                <option value="0">12</option>
+                                            <select name="Month" value={this.state.Month} onChange={(e)=>this.setState({Month:e.target.value})}>
+                                                <option value="0" selected disabled>Chọn Tháng</option>
+                                                <option value="01">1</option>
+                                                <option value="02">2</option>
+                                                <option value="03">3</option>
+                                                <option value="04">4</option>
+                                                <option value="05">5</option>
+                                                <option value="06">6</option>
+                                                <option value="07">7</option>
+                                                <option value="08">8</option>
+                                                <option value="09">9</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
                                             </select>
                                         </div>
                                         <div class="col-sm-3">
                                             <div style={{ fontWeight: "bolder", padding: "2px" }}>Năm Sinh</div>
-                                            <select name="Year">
-                                                <option value="0">Chọn Năm</option>
-                                                <option value="0">2021</option>
-                                                <option value="0">2020</option>
-                                                <option value="0">2019</option>
-                                                <option value="0">2018</option>
-                                                <option value="0">2017</option>
-                                                <option value="0">2016</option>
-                                                <option value="0">2015</option>
-                                                <option value="0">2014</option>
-                                                <option value="0">2013</option>
-                                                <option value="0">2012</option>
-                                                <option value="0">2011</option>
-                                                <option value="0">2010</option>
-                                                <option value="0">2009</option>
-                                                <option value="0">2008</option>
-                                                <option value="0">2007</option>
-                                                <option value="0">2006</option>
-                                                <option value="0">2005</option>
-                                                <option value="0">2004</option>
-                                                <option value="0">2003</option>
-                                                <option value="0">2002</option>
-                                                <option value="0">2001</option>
-                                                <option value="0">2000</option>
-                                                <option value="0">1999</option>
-                                                <option value="0">1999</option>
-                                                <option value="0">1998</option>
-                                                <option value="0">1997</option>
-                                                <option value="0">1996</option>
-                                                <option value="0">1995</option>
-                                                <option value="0">1994</option>
-                                                <option value="0">1993</option>
-                                                <option value="0">1992</option>
-                                                <option value="0">1991</option>
-                                                <option value="0">1990</option>
-                                                <option value="0">1989</option>
-                                                <option value="0">1988</option>
-                                                <option value="0">1987</option>
-                                                <option value="0">1986</option>
-                                                <option value="0">1985</option>
-                                                <option value="0">1984</option>
-                                                <option value="0">1983</option>
-                                                <option value="0">1982</option>
-                                                <option value="0">1981</option>
-                                                <option value="0">1980</option>
-                                                <option value="0">1979</option>
-                                                <option value="0">1978</option>
-                                                <option value="0">1977</option>
-                                                <option value="0">1976</option>
-                                                <option value="0">1975</option>
-                                                <option value="0">1974</option>
-                                                <option value="0">1973</option>
-                                                <option value="0">1972</option>
-                                                <option value="0">1971</option>
-                                                <option value="0">1970</option>
-                                                <option value="0">1969</option>
-                                                <option value="0">1968</option>
-                                                <option value="0">1967</option>
-                                                <option value="0">1966</option>
-                                                <option value="0">1965</option>
-                                                <option value="0">1964</option>
-                                                <option value="0">1963</option>
-                                                <option value="0">1962</option>
-                                                <option value="0">1961</option>
-                                                <option value="0">1960</option>
-                                                <option value="0">1959</option>
-                                                <option value="0">1958</option>
-                                                <option value="0">1957</option>
-                                                <option value="0">1956</option>
-                                                <option value="0">1955</option>
-                                                <option value="0">1954</option>
-                                                <option value="0">1953</option>
-                                                <option value="0">1952</option>
-                                                <option value="0">1951</option>
-                                                <option value="0">1950</option>
-                                                <option value="0">1949</option>
-                                                <option value="0">1948</option>
-                                                <option value="0">1947</option>
-                                                <option value="0">1946</option>
-                                                <option value="0">1945</option>
-                                                <option value="0">1944</option>
-                                                <option value="0">1943</option>
-                                                <option value="0">1942</option>
-                                                <option value="0">1941</option>
-                                                <option value="0">1940</option>
-                                                <option value="0">1939</option>
-                                                <option value="0">1938</option>
-                                                <option value="0">1937</option>
-                                                <option value="0">1936</option>
-                                                <option value="0">1935</option>
-                                                <option value="0">1934</option>
-                                                <option value="0">1933</option>
-                                                <option value="0">1932</option>
-                                                <option value="0">1931</option>
-                                                <option value="0">1930</option>
-                                                <option value="0">1929</option>
-                                                <option value="0">1928</option>
-                                                <option value="0">1927</option>
-                                                <option value="0">1926</option>
-                                                <option value="0">1925</option>
-                                                <option value="0">1924</option>
-                                                <option value="0">1923</option>
-                                                <option value="0">1922</option>
-                                                <option value="0">1921</option>
-                                                <option value="0">1920</option>
-                                                <option value="0">1919</option>
-                                                <option value="0">1918</option>
-                                                <option value="0">1917</option>
-                                                <option value="0">1916</option>
-                                                <option value="0">1915</option>
-                                                <option value="0">1914</option>
-                                                <option value="0">1913</option>
-                                                <option value="0">1912</option>
-                                                <option value="0">1911</option>
-                                                <option value="0">1910</option>
-                                                <option value="0">1909</option>
-                                                <option value="0">1908</option>
-                                                <option value="0">1907</option>
-                                                <option value="0">1906</option>
-                                                <option value="0">1905</option>
-                                                <option value="0">1904</option>
-                                                <option value="0">1903</option>
-                                                <option value="0">1902</option>
-                                                <option value="0">1901</option>
-                                                <option value="0">1900</option>
+                                            <select name="Year" value={this.state.Year} onChange={(e)=>this.setState({Year:e.target.value})}>
+                                                <option value="0" selected disabled>Chọn Năm</option>
+                                                <option value="2021">2021</option>
+                                                <option value="2020">2020</option>
+                                                <option value="2019">2019</option>
+                                                <option value="2018">2018</option>
+                                                <option value="2017">2017</option>
+                                                <option value="2016">2016</option>
+                                                <option value="2015">2015</option>
+                                                <option value="2014">2014</option>
+                                                <option value="2013">2013</option>
+                                                <option value="2012">2012</option>
+                                                <option value="2011">2011</option>
+                                                <option value="2010">2010</option>
+                                                <option value="2009">2009</option>
+                                                <option value="2008">2008</option>
+                                                <option value="2007">2007</option>
+                                                <option value="2006">2006</option>
+                                                <option value="2005">2005</option>
+                                                <option value="2004">2004</option>
+                                                <option value="2003">2003</option>
+                                                <option value="2002">2002</option>
+                                                <option value="2001">2001</option>
+                                                <option value="2000">2000</option>
+                                                <option value="1999">1999</option>
+                                                <option value="1998">1998</option>
+                                                <option value="1997">1997</option>
+                                                <option value="1996">1996</option>
+                                                <option value="1995">1995</option>
+                                                <option value="1994">1994</option>
+                                                <option value="1993">1993</option>
+                                                <option value="1992">1992</option>
+                                                <option value="1991">1991</option>
+                                                <option value="1990">1990</option>
+                                                <option value="1989">1989</option>
+                                                <option value="1988">1988</option>
+                                                <option value="1987">1987</option>
+                                                <option value="1986">1986</option>
+                                                <option value="1985">1985</option>
+                                                <option value="1984">1984</option>
+                                                <option value="1983">1983</option>
+                                                <option value="1982">1982</option>
+                                                <option value="1981">1981</option>
+                                                <option value="1980">1980</option>
+                                                <option value="1979">1979</option>
+                                                <option value="1978">1978</option>
+                                                <option value="1977">1977</option>
+                                                <option value="1976">1976</option>
+                                                <option value="1975">1975</option>
+                                                <option value="1974">1974</option>
+                                                <option value="1973">1973</option>
+                                                <option value="1972">1972</option>
+                                                <option value="1971">1971</option>
+                                                <option value="1970">1970</option>
+                                                <option value="1969">1969</option>
+                                                <option value="1968">1968</option>
+                                                <option value="1967">1967</option>
+                                                <option value="1966">1966</option>
+                                                <option value="1965">1965</option>
+                                                <option value="1964">1964</option>
+                                                <option value="1963">1963</option>
+                                                <option value="1962">1962</option>
+                                                <option value="1961">1961</option>
+                                                <option value="1960">1960</option>
+                                                <option value="1959">1959</option>
+                                                <option value="1958">1958</option>
+                                                <option value="1957">1957</option>
+                                                <option value="1956">1956</option>
+                                                <option value="1995">1955</option>
+                                                <option value="1954">1954</option>
+                                                <option value="1953">1953</option>
+                                                <option value="1952">1952</option>
+                                                <option value="1951">1951</option>
+                                                <option value="1950">1950</option>
+                                                <option value="1949">1949</option>
+                                                <option value="1948">1948</option>
+                                                <option value="1947">1947</option>
+                                                <option value="1946">1946</option>
+                                                <option value="1945">1945</option>
+                                                <option value="1944">1944</option>
+                                                <option value="1943">1943</option>
+                                                <option value="1942">1942</option>
+                                                <option value="1941">1941</option>
+                                                <option value="1940">1940</option>
+                                                <option value="1939">1939</option>
+                                                <option value="1938">1938</option>
+                                                <option value="1937">1937</option>
+                                                <option value="1936">1936</option>
+                                                <option value="1935">1935</option>
+                                                <option value="1934">1934</option>
+                                                <option value="1933">1933</option>
+                                                <option value="1932">1932</option>
+                                                <option value="1931">1931</option>
+                                                <option value="1930">1930</option>
+                                                <option value="1929">1929</option>
+                                                <option value="1928">1928</option>
+                                                <option value="1927">1927</option>
+                                                <option value="1926">1926</option>
+                                                <option value="1925">1925</option>
+                                                <option value="1924">1924</option>
+                                                <option value="1923">1923</option>
+                                                <option value="1922">1922</option>
+                                                <option value="1921">1921</option>
+                                                <option value="1920">1920</option>
+                                                <option value="1919">1919</option>
+                                                <option value="1918">1918</option>
+                                                <option value="1917">1917</option>
+                                                <option value="1916">1916</option>
+                                                <option value="1915">1915</option>
+                                                <option value="1914">1914</option>
+                                                <option value="1913">1913</option>
+                                                <option value="1912">1912</option>
+                                                <option value="1911">1911</option>
+                                                <option value="1910">1910</option>
+                                                <option value="1909">1909</option>
+                                                <option value="1908">1908</option>
+                                                <option value="1907">1907</option>
+                                                <option value="1906">1906</option>
+                                                <option value="1905">1905</option>
+                                                <option value="1904">1904</option>
+                                                <option value="1903">1903</option>
+                                                <option value="1902">1902</option>
+                                                <option value="1901">1901</option>
+                                                <option value="1900">1900</option>
                                             </select>
                                         </div>
                                         <div class="col-sm-3">
                                             <div style={{ fontWeight: "bolder", padding: "2px" }}>Giới Tính</div>
-                                            <select name="Gender">
-                                                <option value="0">Chọn Giới tính</option>
+                                            <select name="Gender" value={this.state.Gender} onChange={(e)=>this.setState({Gender:e.target.value})}>
+                                                <option value="-1" selected disabled>Chọn Giới tính</option>
                                                 <option value="0">Nam</option>
-                                                <option value="0">Nữ</option>
-                                                <option value="0">Khác</option>
+                                                <option value="1">Nữ</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div className="form-group">
                                         <div style={{ fontWeight: "bolder", padding: "2px" }}>Thành phố bạn đang ở:</div>
                                         <input placeholder="Nhập tên thành phố của bạn" name="City" className="form-control"
-                                            value={this.state.City} onChange={this.changeCityHandler}></input>
+                                            value={this.state.City} onChange={(e)=>this.setState({Address:e.target.value})}></input>
                                     </div>
                                     <br></br>
-                                    <button className="btn btn-save" onClick={this.saveStudent} style={{ backgroundColor: "rgb(242,243,243)" }}>Lưu</button>
-                                    <button className="btn btn-cancel" onClick={this.cancel.bind} style={{ marginLeft: "10px", backgroundColor: "rgb(242,243,243)" }}>Hủy</button>
+                                    <button className="btn btn-save" onClick={this.saveNewInfo} style={{ backgroundColor: "rgb(242,243,243)" }}>Lưu</button>
+                                    <button className="btn btn-cancel" onClick={this.cancel} style={{ marginLeft: "10px", backgroundColor: "rgb(242,243,243)" }}>Hủy</button>
                                 </form>
                             </div>
                         </div>
@@ -279,4 +359,4 @@ class StudentComponents extends Component{
     }
 }
 
-export default StudentComponents 
+export default CustomerProfile

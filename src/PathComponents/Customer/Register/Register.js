@@ -2,7 +2,8 @@ import axios from 'axios';
 import React,{Component} from 'react';
 import MuiPhoneNumber from 'material-ui-phone-number';
 import "./Register.css"
-class Register extends Component{
+import { Navigate } from 'react-router-dom';
+class Register extends React.Component{
     constructor(props){
         super(props)
         this.state={
@@ -16,8 +17,13 @@ class Register extends Component{
             Gender:-1,
             Year:'0',
             Month:'0',
-            DateBirth:'0'
+            DateBirth:'0',
+            AppId:'',
+            data1:[],
         }
+    }
+    changeAppId=(event)=>{
+        this.setState({AppId:event.target.value})
     }
     changeYear=(event)=>{
         this.setState({Year:event.target.value})
@@ -43,13 +49,14 @@ class Register extends Component{
     changeConfirmPasswordHandler=(event)=>{
         this.setState({ConfirmPassword: event.target.value});
     }
-
-   
     changeGenderHandler=(event)=>{
         this.setState({Gender: event.target.value});
     }
+    componentDidMount= async ()=>{
+      
+    }
     runScript=()=>{
-        if(this.state.ConfirmPassword===this.state.Password){
+        if (this.state.ConfirmPassword === this.state.Password) {
             let genderAlocated = false;
             if (this.state.Gender === true) {
                 genderAlocated = true;
@@ -57,33 +64,46 @@ class Register extends Component{
             axios.post(
                 "http://localhost:8020/Customer/Register",
                 {
-                        CUSTOMER_EMAIL: this.state.Email,
-                        CUS_PASSWORD: this.state.Password,
-                        CUSTOMER_NAME: this.state.FullName,
-                        CUSTOMER_TELEPHONE: this.state.Telephone,
-                        BIRTHDAY: this.state.Year + "-" + this.state.Month + "-" + this.state.DateBirth,
-                        GENDER: this.state.Gender,
+                    CUSTOMER_EMAIL: this.state.Email,
+                    CUS_PASSWORD: this.state.Password,
+                    CUSTOMER_NAME: this.state.FullName,
+                    CUSTOMER_TELEPHONE: this.state.Telephone,
+                    BIRTHDAY: this.state.Year + "-" + this.state.Month + "-" + this.state.DateBirth,
+                    GENDER: this.state.Gender,
                 }
-            ).then((response)=>{console.log(response)});
+            ).then(ans => {
+                axios.post('http://localhost:8020/Customer/getAppId')
+                    .then(
+                        res => {
+                            console.log(ans.data)
+                            axios.post(
+                                "http://localhost:8020/Customer/getUserInfo", {
+                                CUSTOMER_TOKEN: ans.data[0].CUSTOMER_TOKEN,
+                                APP_ID: res.data[0].APP_ID,
+                                CUSTOMER_ID: ans.data[0].CUSTOMER_ID,
+                                STATUS: ans.data[0].STATUS,
+                                EXPIRED_TIME: ans.data[0].EXPIRED_TIME,
+                            })
+                        })
+            });
+            console.log(this.state.data1);
+            // if(ans.data[0].ERROR){
+            //     if (result.data[0].AppId){
+                   
+                // }
+            // }
+            // else{
+            //     // window.alert(ans.data[0].ERROR)
+            // }
         }
-      
     }
     render(){ 
-        function handlePhone(params) {
-            this.setState(
-                {
-                    Telephone:params
-                }
-            )
-        }
-        console.log(this.state.Telephone);
         return(
             <div className="container">
                 <div className="row-form">
                     <h1 className="text-center">Đăng ký thành viên</h1>
                     <div className="card col-md-6 offset-md-3 offset-md-3">
                         <div className="card-body">
-                            <form>
                                 <div className="form-group">
                                     <label>Email:</label>
                                     <input placeholder="VD:email@example.com" name="emailId" type="email" className="form-control"
@@ -306,7 +326,6 @@ class Register extends Component{
                                     </div>
                                 <br></br>
                                 <button className="btn btn-success" onClick={this.runScript}>Đăng ký</button>
-                            </form>
                         </div>
                     </div>
                 </div>
