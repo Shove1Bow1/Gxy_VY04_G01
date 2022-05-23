@@ -208,7 +208,6 @@ function Ticket_one() {
                 </div>
                 <div class="col-lg-6">
                   <label></label>
-
                   {/* <!--input --> */}
                   {openOptionsK && (
                     <div style={{ border: "none" }}>

@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import "./SideBarDetail/SideBarDetailSearch.css";
 
-export default function datepicker() {
+export default function DatePicker() {
     const [date,setDate] = useState();
     console.log("Date",date);
   return (

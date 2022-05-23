@@ -53,7 +53,7 @@ export default function Register() {
             return;
         }
         axios.post(
-                "http://localhost:8020/Customer/Register",
+                "https://gxyvy04g01backend-production.up.railway.app/Customer/Register",
                 {
                     CUSTOMER_EMAIL: getEmail,
                     CUS_PASSWORD: getPassword,

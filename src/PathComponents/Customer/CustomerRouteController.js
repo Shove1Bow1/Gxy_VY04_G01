@@ -48,10 +48,6 @@ const App = () => {
         <Routes>
 
           <Route path='/*' element={<Homepage />} />
-          <Route path='/Login/*' element={<Login />}></Route>
-          <Route path='/Register' element={<Register />} />
-          {<Route path='/Profile/*' element={<Profile />} replace state={{from: setLocation}}/>}
-
           <Route path='/' element={<Homepage />} />
           <Route path='/Login/*' element={
             <RouteNonAuth>
