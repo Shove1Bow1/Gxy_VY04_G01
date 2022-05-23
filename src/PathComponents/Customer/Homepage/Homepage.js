@@ -8,6 +8,7 @@ import Promotion from "./Promotion/Promotion";
 import Advantage from "./Advantage/Advantage";
 import Sidebar from "./SideBar/Sidebar";
 import MainDiscovery from "./Discovery/MainDiscovery.js"
+import FooterHomepage from "./Footer/FooterCustomer";
 export default function Homepage(){
     return(
         <div className="container-fluid">  
@@ -22,9 +23,12 @@ export default function Homepage(){
                         <Advantage />
                         <Explore />
                         <MainDiscovery/>
+                        
                     </Fragment>
+                   
                 </div>
-            </div>          
+            </div>    
+              
         </div> 
     )
 }
