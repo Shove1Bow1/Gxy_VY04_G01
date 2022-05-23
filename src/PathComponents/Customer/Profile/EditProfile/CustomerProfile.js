@@ -17,7 +17,6 @@ export default function CustomerProfile() {
             axios.post("https://gxyvy04g01backend-production.up.railway.app/Customer/getUserInfo", {
                 TOKEN: getCookies.Customer,
             }).then(res => {
-                console.log(res.data);
                 setPackage(res.data.PACKAGE);
             })
         }
@@ -32,7 +31,7 @@ export default function CustomerProfile() {
         setGender(getPackage.CUSTOMER_GENDER);
         setMonth(getPackage.CUSTOMER_MONTHOFBIRTH);
         setYear(getPackage.CUSTOMER_YEAROFBIRTH);
-    },[])
+    })
     const onCancelEvent = () => {
         window.location.reload();
     }

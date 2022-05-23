@@ -8,7 +8,7 @@ import { AuthContext } from "../../../../Auth/SessionCustomer";
 import { useCookies } from "react-cookie";
 export default function Navbar(prop) {
     const [getCookies,setCookie,removeCookies]=useCookies();
-    function runScript(e){
+    function runScript(){
         removeCookies("Customer");
     }
     return (
@@ -51,7 +51,7 @@ export default function Navbar(prop) {
                         <FaCog />
                         <span>Tài Khoản</span></Link>
                     </li>
-                    <li onClick={()=>runScript}><a href="/" className="list-group-item list-group-item-action" >
+                    <li onClick={()=>runScript()}><a href="/" className="list-group-item list-group-item-action" >
                         <FaPowerOff />
                             <span >Đăng Xuất</span></a>
                     </li>

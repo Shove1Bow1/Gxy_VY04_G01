@@ -20,7 +20,7 @@ const App = () => {
   function checkStatus() {
     var Status = false;
     if (getCookies.Customer) {
-      Status=axios.post("http://localhost:8020/Customer/getStatus", {
+      Status=axios.post("https://gxyvy04g01backend-production.up.railway.app/Customer/getStatus", {
         TOKEN: getCookies.Customer
       }).then(res => {
         if (res.data.STATUS)

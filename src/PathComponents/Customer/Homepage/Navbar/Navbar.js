@@ -12,10 +12,10 @@ import "./Navbar.css";
 
 const Navbar = () => {
   const [getCustomerName,setCustomerName]=useState("");
-  const [getCookies,setCookies]=useCookies();
+  const [getCookies,setCookies,removeCookies]=useCookies();
   useEffect(() => {
     if (getCookies.Customer&&!getCustomerName) {
-      axios.post("http://localhost:8020/Customer/getCustomerName", {
+      axios.post("https://gxyvy04g01backend-production.up.railway.app/Customer/getCustomerName", {
         TOKEN: getCookies.Customer,
       }).then(res => {
         setCustomerName(res.data.CUSTOMER_NAME);
