@@ -14,17 +14,21 @@ export default function Register() {
     const [getFullName,setFullName]=useState("");
     const [getPassword,setPassword]=useState("");
     const [getConfirmPassword,setConfirmPassword]=useState("");
-    const [getDate,setDate]=useState(0);
-    const [getMonth,setMonth]=useState(0);
-    const [getYear,setYear]=useState(0);
-    const [getGender,setGender]=useState(-1);
+    const [getDate,setDate]=useState("0");
+    const [getMonth,setMonth]=useState("0");
+    const [getYear,setYear]=useState("0");
+    const [getGender,setGender]=useState("-1");
     const [getTelephone,setTelephone]=useState();
     const runScript = () => {
-        if (getConfirmPassword === getPassword) {
+        if(getConfirmPassword.length<5||getPassword<5){
+            window.alert("Mật khẩu ngắn");
+            return;
+        }
+        if (!getConfirmPassword.includes(getPassword)||getConfirmPassword!==getPassword) {
             window.alert("Mật khẩu xác nhận sai");
             return;
         } 
-        if(getGender!==1||getGender!==0){
+        if(!getGender.localeCompare("1")||getGender.localeCompare("0")){
             window.alert("Vui lòng chọn giới tính");
             return;
         }
@@ -36,8 +40,20 @@ export default function Register() {
             window.alert("Vui lòng điền họ tên");
             return;
         }
+        if(getDate.includes("0")){
+            window.alert("Vui lòng chọn ngày");
+            return;
+        }
+        if(getMonth.includes("0")){
+            window.alert("Vui lòng chọn ngày");
+            return;
+        }
+        if(getYear.includes("0")){
+            window.alert("Vui lòng chọn ngày");
+            return;
+        }
         axios.post(
-                "https://gxyvy04g01backend-production.up.railway.app/Customer/Register",
+                "http://localhost:8020/Customer/Register",
                 {
                     CUSTOMER_EMAIL: getEmail,
                     CUS_PASSWORD: getPassword,
@@ -68,23 +84,23 @@ export default function Register() {
                                 value={getEmail} onChange={(e)=>{setEmail(e.target.value)}} required></input>
                         </div>
                         <div className="form-group">
-                            <label>Full Name:</label>
+                            <label>Họ và tên:</label>
                             <input placeholder="Họ và tên của bạn" name="fullName" className="form-control"
                                 value={getFullName} onChange={(e)=>{setFullName(e.target.value)}} required></input>
                         </div>
                         <div className="form-group">
-                            <label>Pass Word:</label>
+                            <label>Mật Khẩu:</label>
                             <input placeholder="Mật khẩu của bạn" name="Password" type="password" className="form-control"
                                 value={getPassword} onChange={(e)=>{setPassword(e.target.value)}} required></input>
                         </div>
                         <div className="form-group">
-                            <label>Confirm Password:</label>
+                            <label>Xác nhận mật khẩu:</label>
                             <input placeholder="Xác nhận mật khẩu của bạn" type="password" name="password" className="form-control"
                                 value={getConfirmPassword} onChange={(e)=>{setConfirmPassword(e.target.value)}} required></input>
                             {getConfirmPassword === getPassword ? null : <p>wrong password</p>}
                         </div>
                         <div className="form-group">
-                            <label>Telephone:</label>
+                            <label>Số điện thoại:</label>
                             <MuiPhoneNumber defaultCountry={'vn'} onlyCountries={['vn']} />
                         </div>
                         <div class="row-select">

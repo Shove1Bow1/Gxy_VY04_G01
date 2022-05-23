@@ -8,7 +8,7 @@ export default function MyBounsPoints() {
   const [getPoint,setPoint]=useState(0);
   const [getOpen, setOpen] = useState(false); 
   useEffect(()=>{
-    axios.post("http://localhost:8020/Customer/postPointAvailable",{
+    axios.post("https://gxyvy04g01backend-production.up.railway.app/Customer/postPointAvailable",{
       TOKEN:getCookies.Customer,
     }).then(res=>{
       setPoint(res.data.POINT_AVAILABLE);

@@ -11,7 +11,7 @@ const LoginEmail = () => {
     function createCookie(time,data){
       setCookies("Customer",data,{maxAge:time,path:"/"});
     }
-    function runScript(e){
+    function runScript(){
       try {
         axios.post("https://gxyvy04g01backend-production.up.railway.app/Customer/LoginEmail", {
           CUSTOMER_EMAIL: getEmail,
@@ -19,7 +19,7 @@ const LoginEmail = () => {
         })
           .then((res) => {
               if(res.data.STATUS){
-                console.log(res.data.PACKAGE);
+                console.log(res.data);
                 createCookie(res.data.EXPIRED_TIME,res.data.PACKAGE)
                 Navigate("/");
               }
@@ -50,7 +50,7 @@ const LoginEmail = () => {
                     <input type="password" id="typePasswordX-2" value={getPassword} onChange={(e)=>setPassword(e.target.value)} class="form-control form-control-lg" />
                   </div>
                   {/* <!-- Checkbox --> */}
-                  <button class="btn btn-primary btn-lg btn-block button-size " onClick={runScript} type="submit">Login</button>
+                  <button class="btn btn-primary btn-lg btn-block button-size " onClick={()=>runScript()} type="submit">Login</button>
                   <hr class="my-4" />
                   <p class="text-left-2 "><Link to="/Login/Tellephone"><b class="colorlogo" >Use Phone Number</b></Link>&ensp;or&ensp;<Link to="/Login/TellephoneOtp"><b class="colorlogo" >OTP</b></Link></p>
                 </div>
