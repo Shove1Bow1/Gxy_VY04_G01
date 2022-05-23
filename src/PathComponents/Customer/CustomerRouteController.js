@@ -46,6 +46,12 @@ const App = () => {
       <Navbar />
       <div style={{ position: "relative" }}>
         <Routes>
+
+          <Route path='/*' element={<Homepage />} />
+          <Route path='/Login/*' element={<Login />}></Route>
+          <Route path='/Register' element={<Register />} />
+          {<Route path='/Profile/*' element={<Profile />} replace state={{from: setLocation}}/>}
+
           <Route path='/' element={<Homepage />} />
           <Route path='/Login/*' element={
             <RouteNonAuth>
@@ -62,6 +68,7 @@ const App = () => {
               <Profile />
             </RouteAuth>
           } />
+
         </Routes>
       </div>
       <FooterCustomer />

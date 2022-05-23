@@ -6,6 +6,8 @@
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/react-fontawesome": "^0.1.18",
+    "@material-ui/core": "^4.12.4",
+    "@material-ui/icons": "^4.11.3",
     "@stripe/react-stripe-js": "^1.7.2",
     "@stripe/stripe-js": "^1.27.0",
     "@testing-library/jest-dom": "^5.16.4",
@@ -21,9 +23,14 @@
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
     "react-router-dom": "^6.3.0",
+<<<<<<< HEAD
+    "react-scripts": "^2.1.3",
+    "styled-components": "^5.3.5",
+=======
     "react-scripts": "^5.0.1",
     "recharts": "^2.1.9",
     "sass": "^1.49.9",
+>>>>>>> 0e3d8d11d252e564439d68d608080f40ab2a8b6a
     "web-vitals": "^2.1.4"
   },
   "scripts": {
