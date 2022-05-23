@@ -3,8 +3,14 @@ import { GrNotes, } from "react-icons/gr";
 import { BsPeople } from "react-icons/bs";
 import './navbar.css';
 import { Link } from 'react-router-dom';
-import React, { useState } from "react";
-function Navbar(prop) {
+import React, { useContext, useState } from "react";
+import { AuthContext } from "../../../../Auth/SessionCustomer";
+import { useCookies } from "react-cookie";
+export default function Navbar(prop) {
+    const [getCookies,setCookie,removeCookies]=useCookies();
+    function runScript(){
+        removeCookies("Customer");
+    }
     return (
         <div className='card offset-md-2 col-md-2'>
             <div className="list-group">
@@ -45,13 +51,12 @@ function Navbar(prop) {
                         <FaCog />
                         <span>Tài Khoản</span></Link>
                     </li>
-                    <li><Link to='/' className="list-group-item list-group-item-action">
+                    <li onClick={()=>runScript()}><a href="/" className="list-group-item list-group-item-action" >
                         <FaPowerOff />
-                        <span>Đang Đăng Xuất</span></Link>
+                            <span >Đăng Xuất</span></a>
                     </li>
                 </ul>
             </div>
         </div>
     )
 }
-export default Navbar;

@@ -1,17 +1,17 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import "./navi.css";
 import CustomerProfile from "./CustomerProfile";
 import ChangePassword from "./ChangePassword";
 import { Container } from 'react-bootstrap';
-
-const ProfileSetting= () => {
+import {AuthContext} from '../../../../Auth/SessionCustomer'
+const ProfileSetting= (props) => {
     const [getPage,setPage]=useState(1);
-    return (
-        
+    const {CUSTOMER_TOKEN,CUSTOMER_ID,CUSTOMER_NAME}=useContext(AuthContext);
+        return (
             <div>
-                <nav className='nav'>
-                    <ul className='nav-link'>
+                <nav className='nav'style={{backgroundColor:"white"}}>
+                    <ul className='nav-link-1' style={{width: "45%",display: "flex",justifyContent: "space-between",alignItems: "center",listStyle: "none",paddingLeft:"6%"}}>
                         <li>
                             <div className='navi.profile' onClick={()=>setPage(1)}>Thông tin tài khoản</div>
                         </li>
@@ -21,8 +21,8 @@ const ProfileSetting= () => {
                     </ul>
                 </nav>
                 <div>
-                    {getPage===1? <CustomerProfile />:null}
-                    {getPage===2? <ChangePassword/>:null}
+                    {getPage===1? <CustomerProfile tokenValue={CUSTOMER_TOKEN} idValue={CUSTOMER_ID}/>:null}
+                    {getPage===2? <ChangePassword tokenValue={CUSTOMER_TOKEN} idValue={CUSTOMER_ID}/>:null}
                 </div>
             </div>
         

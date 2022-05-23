@@ -17,7 +17,7 @@ export default function AirportTransfer(){
                     Get a broader exposure for your AirportTransfer and boost your occupancy
                     rate like never before.
                 </p>
-                <Link to="/Partner/Register">
+                <Link to="/Partner/Login">
                     <button className='button-get-started'>
                         Get Started
                     </button>

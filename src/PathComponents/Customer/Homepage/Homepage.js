@@ -6,7 +6,6 @@ import Partner from "./Partner/Partner";
 import Propose from "./Propose/Propose";
 import Promotion from "./Promotion/Promotion";
 import Advantage from "./Advantage/Advantage";
-import Sidebar from "./SideBar/Sidebar";
 import MainDiscovery from "./Discovery/MainDiscovery.js"
 import FooterHomepage from "./Footer/FooterCustomer";
 export default function Homepage(){

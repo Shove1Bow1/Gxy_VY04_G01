@@ -3,7 +3,7 @@ import { Link} from "react-router-dom";
 
 export default function NavLink(props) {
   return (
-    <div class="row nav-link dialog-point">
+    <div class="row nav-link dialog-point" style={{width:100+"%"}}>
       <div class={props.getData===1?"col-lg-4 bottom-line":"col-lg-4"}>
         <li className="nav-item-left" >
           <button class="text-color-nav button-nav-item" onClick={() =>props.setData(1)}><b>Khả dụng</b></button>

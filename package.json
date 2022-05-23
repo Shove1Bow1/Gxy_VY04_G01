@@ -15,18 +15,22 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.26.1",
     "dotenv": "^16.0.0",
-    "express-session": "^1.17.2",
-    "history": "^5.3.0",
     "material-ui-phone-number": "^3.0.0",
-    "mysql": "^2.18.1",
-    "nodemon": "^2.0.15",
     "react": "^17.0.2",
     "react-bootstrap": "^2.2.3",
+    "react-burger-menu": "^3.0.6",
+    "react-cookie": "^4.1.1",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
     "react-router-dom": "^6.3.0",
+<<<<<<< HEAD
     "react-scripts": "^2.1.3",
     "styled-components": "^5.3.5",
+=======
+    "react-scripts": "^5.0.1",
+    "recharts": "^2.1.9",
+    "sass": "^1.49.9",
+>>>>>>> 0e3d8d11d252e564439d68d608080f40ab2a8b6a
     "web-vitals": "^2.1.4"
   },
   "scripts": {

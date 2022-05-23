@@ -1,19 +1,25 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate,useNavigate } from "react-router-dom";
+import { useCookies } from "react-cookie";
 import "../PartnerRegisterAndLogin.css"
 const PartnerLogin = () => {
+  const Navigate=useNavigate();
+  const [getCookies,setCookies]=useCookies();
   const [getEmail, setEmail] = useState("");
   const [getPassword, setPassword] = useState("");
-  const [getAppID, setAppID] = useState("");
-  async function Login() {
-    await axios.post("http://localhost:8020/Partner/Login",
+  function Login() {
+    axios.post("https://gxyvy04g01backend-production.up.railway.app/Partner/Login",
       {
         PARTNER_EMAIL: getEmail,
         PARTNER_PASSWORD: getPassword,
-        APP_ID:getAppID
-      })
-  }
+      }).then(res=>{
+          if(res.data.STATUS){
+            setCookies("Partner",res.data.TOKEN,{path:"/Parent",maxAge:res.data.EXPIRED_TIME});
+            Navigate("/Partner/Profile");
+          }
+        })
+      }
   return (
     <div className="bg-register">
       <div class=" py-5 h-100">
@@ -26,7 +32,7 @@ const PartnerLogin = () => {
               <div class="card-body">
                 <h5 class="text-center">Traveloka <b className="colorlogo">TERA</b></h5>
                 <br /><br />
-                <form class="form-signin">
+                
                   <div><h5>Welcom Back!</h5></div>
                   <div>
                     <p>
@@ -50,20 +56,6 @@ const PartnerLogin = () => {
                     </div>
                   </div>
                   <div>
-                    <label>Select a service</label>
-                    <select value={getAppID} onChange={(e) => setAppID(e.target.value)} className="service-form-select-register form-select">
-                      <option value="" disabled>Please choose your service</option>
-                      <option value="VY04MB">Flight</option>
-                      <option value="VY04TX">Car Rentals</option>
-                      <option value="VY04KS">Hotel</option>
-                      <option value="VY04DDSB">Airport Transfer</option>
-                      <option value="VY04BTCH">Holiday Stays</option>
-                      <option value="VY04TDL">Xperience</option>
-                      <option value="VY04NH">Restaurants</option>
-                    </select>
-                  </div>
-               
-                  <div>
                     <p><b className="colorlogo">Forgot your password!</b></p>
                   </div>
                   <hr />
@@ -78,7 +70,6 @@ const PartnerLogin = () => {
                     </p>
                   </div>
                   <hr className="my-2" />
-                </form>
               </div>
             </div>
           </div>

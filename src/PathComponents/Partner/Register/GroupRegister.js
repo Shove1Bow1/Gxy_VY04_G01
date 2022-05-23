@@ -1,39 +1,91 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useCookies } from "react-cookie";
+import { useNavigate } from "react-router-dom";
+
 import Title from "./Title";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
 import Step3 from "./Step3";
 import Step4 from "./Step4";
-// import '../PartnerRegisterAndLogin.css'
 export default function PartnerRegister(){
+    const [getCookies,setCookies]=useCookies();
     const [getPageId,setPageId]=useState(1);
-    const [getEmail,setEmail]=useState("");
-    const [getFirstname,setFirstname]=useState("");
-    const [getLastname,setLastname]=useState("");
-    const [getAppID,setAppID]=useState("");
+    const [getEmail,setEmail]=useState();
+    const [getPartnerName,setPartnerName]=useState("");
+    const [getAppID,setAppID]=useState({
+        Services:[],
+        Includes:[],
+    });
     const [getPassword,setPassword]=useState("");
     const [getPasswordConfirm,setPasswordConfirm]=useState("");
-    const [getValidatePassword,setValidatePassword]=useState("");
-    console.log(getEmail);
-    console.log(getFirstname);
-    console.log(getLastname);
-    console.log(getPassword);
+    var Navigate=useNavigate();
     function RegisterToDatabase(){
         axios.post("https://gxyvy04g01backend-production.up.railway.app/Partner/Register",{
             PARTNER_EMAIL: getEmail,
             PARTNER_PASSWORD: getPassword,
-            PARTNER_NAME: getLastname,
-            APP_ID:getAppID,
-        }).then((response)=>{console.log(response)});
+            PARTNER_NAME: getPartnerName,
+            APP_ID:getAppID.Services,
+        }).then((response)=>{
+            if(response.data.STATUS){
+                setCookies("Partner",response.data.TOKEN,{maxAge:response.data.EXPIRED_TIME,path:"/Partner"})
+                Navigate("/Partner/Profile");
+                return;
+            }
+            else{
+                window.alert(response.data.ERROR);
+                window.location.reload();
+                return;
+            }
+        },[]);
+    }
+    function handleChange(e){
+        const { value, checked } = e.target;
+        const { Services } = getAppID;
+        if (checked) {
+            setAppID({
+                Services: [...Services, value],
+                response: [...Services, value],
+            });  
+        }
+        else {
+            setAppID({
+              Services: Services.filter((e) => e !== value),
+              Includes: Services.filter((e) => e !== value),
+            });
+        }
+    }
+    function HandlePage1(){
+        if(!getAppID.Services[0]){
+            return false;
+        }
+        if(getEmail===null ||getEmail===undefined||getEmail.length<5){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+    function HandlePage3(e,lengthValue){
+        console.log(lengthValue);
+        if(getPassword.length<5){
+            return false;
+        }
+        if(getPassword.includes(e)&&getPassword.length===lengthValue){
+            return true;
+        }
+        if(!e){
+            return false
+        }
+        return false;
     }
     return (
         <div>
             <Title/>
-            {getPageId===1?<Step1 onPage={setPageId} getEmail={getEmail} getAppID={getAppID} onEmail={setEmail} onAppId={setAppID}/>:null}
-            {getPageId===2?<Step2 onPage={setPageId} getFirstName={getFirstname} getLastName={getLastname} onFirstName={setFirstname} onLastName={setLastname}/>:null}
-            {getPageId===3?<Step3 onPage={setPageId} getPassword={getPassword} onPassword={setPassword} onClick={RegisterToDatabase}/>:null}
-            {getPageId===4?<Step4 onPage={setPageId} />:null}
+            {getPageId===1?<Step1 onPage={setPageId} functionHandle={HandlePage1} getEmail={getEmail} onAppId={getAppID} onHandle={handleChange} onEmail={setEmail}/>:null}
+            {getPageId===2?<Step2 onPage={setPageId} getLastName={getPartnerName} onLastName={setPartnerName}/>:null}
+            {getPageId===3?<Step3 onPage={setPageId} functionHandle={HandlePage3} getPassword={getPassword} onPassword={setPassword} onClick={RegisterToDatabase}/>:null}
+            {getPageId===4?<Step4 onPage={setPageId} registerToDataBase={RegisterToDatabase}/>:null}
         </div>
     )
 }

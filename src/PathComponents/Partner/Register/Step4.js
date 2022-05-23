@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import logo from "./Img/confirm.png"
-const Step4 = () =>{
+const Step4 = (props) =>{
+    useEffect(()=>{
+        props.registerToDataBase();
+    })
+       
     return(
         <div className="bg-register" >
             <div class=" py-5 h-100">
