@@ -5,7 +5,7 @@ import CustomerPage from "./PathComponents/Customer/CustomerRouteController";
 import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
 export default function App(){
     return (
-        <Router>
+      <Router>
         <Routes>
            <Route path='/*' element={<CustomerPage/>}></Route>
            <Route path='/Partner/*' element={<PartnerPage/>}></Route>

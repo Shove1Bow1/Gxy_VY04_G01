@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App.js';
-import {AuthContextProvider} from "./Auth/SessionCustomer"
+import { CookiesProvider } from 'react-cookie';
 ReactDOM.render(
-  <React.StrictMode>  
-    <AuthContextProvider>
-        <App/>
-    </AuthContextProvider>
+  <React.StrictMode>
+    <CookiesProvider>
+      <App />
+    </CookiesProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

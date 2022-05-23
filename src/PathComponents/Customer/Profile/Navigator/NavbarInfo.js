@@ -5,11 +5,11 @@ import './navbar.css';
 import { Link } from 'react-router-dom';
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../../../Auth/SessionCustomer";
+import { useCookies } from "react-cookie";
 export default function Navbar(prop) {
-    const {dispatch}=useContext(AuthContext);
+    const [getCookies,setCookie,removeCookies]=useCookies();
     function runScript(e){
-        dispatch({type:"LOGOUT"});
-        navigator('/');
+        removeCookies("Customer");
     }
     return (
         <div className='card offset-md-2 col-md-2'>
@@ -51,9 +51,9 @@ export default function Navbar(prop) {
                         <FaCog />
                         <span>Tài Khoản</span></Link>
                     </li>
-                    <li onClick={runScript}><Link to='/' className="list-group-item list-group-item-action" >
+                    <li onClick={()=>runScript}><a href="/" className="list-group-item list-group-item-action" >
                         <FaPowerOff />
-                            <span >Đăng Xuất</span></Link>
+                            <span >Đăng Xuất</span></a>
                     </li>
                 </ul>
             </div>

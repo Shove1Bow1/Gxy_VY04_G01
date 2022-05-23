@@ -17,7 +17,7 @@ export default function CarRentals(){
                     Get a broader exposure for your car rentals and boost your occupancy
                     rate like never before.
                 </p>
-                <Link to="/Partner/Register">
+                <Link to="/Partner/Login">
                     <button className='button-get-started'>
                         Get Started
                     </button>

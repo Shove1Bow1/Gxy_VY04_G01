@@ -10,8 +10,8 @@ const ProfileSetting= (props) => {
     const {CUSTOMER_TOKEN,CUSTOMER_ID,CUSTOMER_NAME}=useContext(AuthContext);
         return (
             <div>
-                <nav className='nav'>
-                    <ul className='nav-link'>
+                <nav className='nav'style={{backgroundColor:"white"}}>
+                    <ul className='nav-link-1' style={{width: "45%",display: "flex",justifyContent: "space-between",alignItems: "center",listStyle: "none",paddingLeft:"6%"}}>
                         <li>
                             <div className='navi.profile' onClick={()=>setPage(1)}>Thông tin tài khoản</div>
                         </li>

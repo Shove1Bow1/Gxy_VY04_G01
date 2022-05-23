@@ -1,50 +1,67 @@
+/// Modules and component
 import React, { Fragment, useEffect, useState, useContext } from 'react';
-import { BrowserRouter as Router,Routes, Route, useLocation, Navigate, useNavigate } from 'react-router-dom'
-import './App.css';
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate, useNavigate } from 'react-router-dom'
+import axios from 'axios';
+import { useCookies } from "react-cookie";
+/// Component
 import Homepage from './Homepage/Homepage';
 import Login from './Login/LoginController'
 import Register from './Register/Register';
 import Profile from './Profile/ProfileController';
 import FooterCustomer from './Homepage/Footer/FooterCustomer';
-import Sidebar from './Homepage/SideBar/Sidebar.js';
-import axios from 'axios';
+import Navbar from "./Homepage/Navbar/Navbar";
 import { AuthContext } from '../../Auth/SessionCustomer';
-const App = () => { 
-  const { CUSTOMER_TOKEN,CUSTOMER_ID,CUSTOMER_NAME } = useContext(AuthContext);
-  const ProtectedRoute=({children})=>{
-    if (!CUSTOMER_TOKEN&&!CUSTOMER_ID&&!CUSTOMER_NAME) {
-      return <Navigate to="/" />;
+/// Css
+import './App.css';
+
+const App = () => {
+  const [getCookies, setCookies] = useCookies();
+  const { CUSTOMER_TOKEN } = useContext(AuthContext);
+  function checkStatus() {
+    var Status = false;
+    if (getCookies.Customer) {
+      Status=axios.post("http://localhost:8020/Customer/getStatus", {
+        TOKEN: getCookies.Customer
+      }).then(res => {
+        if (res.data.STATUS)
+          return true;
+      })
     }
-    return children;
+    return Status;
   }
-  const RouteForLogin=({children})=>{
-    console.log(CUSTOMER_TOKEN);
-    if (CUSTOMER_TOKEN&&CUSTOMER_ID&&CUSTOMER_NAME) {
-      return <Navigate to="/" />;
+  const RouteAuth = ({ children }) => {
+    if (checkStatus()) {
+      return children;
     }
-    return children;
+    return <Navigate to="/" />;
   }
-  const navigate=useNavigate();
-  const setLocation=useLocation();
-  const [getToken,setToken]=useState("null");
-  const [getUserID,setUserID]=useState("");
-  const [getUserName,setUserName]=useState("");
+  const RouteNonAuth = ({ children }) => {
+    if (!checkStatus()) {
+      return children;
+    }
+    return <Navigate to="/" />;
+  }
   return (
     <>
-      <Sidebar />
+      <Navbar />
       <div style={{ position: "relative" }}>
         <Routes>
           <Route path='/' element={<Homepage />} />
           <Route path='/Login/*' element={
-            <RouteForLogin>
+            <RouteNonAuth>
               <Login />
-            </RouteForLogin>
+            </RouteNonAuth>
           } />
-          <Route path='/Register' element={<Register />} />
+          <Route path='/Register' element={
+            <RouteNonAuth>
+              <Register />
+            </RouteNonAuth>
+          } />
           <Route path='/Profile/*' element={
-            <ProtectedRoute>
-                <Profile />
-            </ProtectedRoute>} />
+            <RouteAuth>
+              <Profile />
+            </RouteAuth>
+          } />
         </Routes>
       </div>
       <FooterCustomer />

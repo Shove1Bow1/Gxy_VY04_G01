@@ -15,7 +15,7 @@ export default function Restaurant(){
                     If you have a restaurant, a coffee shop, or a cafe, Traveloka ensures
                     that your business stands out.
                 </p>
-                <Link to="/Partner/Register">
+                <Link to="/Partner/Login">
                     <button className='button-get-started'>
                         Get Started
                     </button>

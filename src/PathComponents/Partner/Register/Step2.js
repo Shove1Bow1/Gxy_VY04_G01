@@ -15,20 +15,18 @@ const Step2 =(props)=>{
                   <div class="card-body">
                     <h5 class="text-center">Traveloka <b className="colorlogo">TERA</b></h5>
                     <br /><br />
-                    <form class="form-signin">
                       <div><h6> What should we call you?</h6></div>
                       <br />
                      
                       <div><label>Company: </label></div>
                       <div class="form-label-group">
-                        <input type="text" id="inputLname" class="form-control" placeholder="Company name" value={props.getLastname} onChange={(e)=>props.onLastName(e.target.value)} required/>
+                        <input type="text" id="inputLname" class="form-control" placeholder="Company name" value={props.getLastName} onChange={(e)=>props.onLastName(e.target.value)} required/>
                         <label for="inputLname">Company</label>
                       </div> 
                       <hr />
                         <button class="btn btn-lg btn-primary btn-block text-uppercase" onClick={()=>props.onPage(1)}>Back</button>
                         <button class="btn btn-lg btn-primary btn-block text-uppercase" onClick={()=>props.onPage(3)}>Next</button>
                       <hr className="my-4" />
-                    </form>
                   </div>
                 </div>
               </div>
