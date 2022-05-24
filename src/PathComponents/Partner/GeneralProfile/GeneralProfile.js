@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import SideBar from "./SideBar"
+import SideBar from "./SideBar";
 export default function GeneralProfile(){
     const [sidebar, setSidebar] = useState(false);
     const showSidebar = () => setSidebar(!sidebar);

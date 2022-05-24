@@ -12,7 +12,7 @@ export default function Homepage(){
     return(
         <div className="container-fluid">  
             <div className="row">
-                <div className="col">
+                <div className="col-homepage">
                     <Fragment>
                         <Banner/>
                         <Search />
@@ -22,9 +22,7 @@ export default function Homepage(){
                         <Advantage />
                         <Explore />
                         <MainDiscovery/>
-                        
                     </Fragment>
-                   
                 </div>
             </div>    
               

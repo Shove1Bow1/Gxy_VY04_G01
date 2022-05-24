@@ -9,10 +9,10 @@ export default function NavigateBarHomepage(){
                         <img src={require('./Img/traveloka.png')} className="traveloka-icon"></img>
                     </div>
                     <div className='row line'>
-                        <div className='col-sm-5' style={{paddingLeft:90+"px",width:60+"%",textAlign:"center"}}>
+                        <div className='col-sm-5' style={{paddingLeft:0+"px",width:50+"%",textAlign:"center"}}>
                             Why Partner with traveloka?
                         </div>
-                        <div className='col-sm-4' style={{}}>
+                        <div className='col-sm-5' style={{}}>
                             How to Partner
                         </div>
                     </div>
