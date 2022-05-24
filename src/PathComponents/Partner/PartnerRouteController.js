@@ -43,7 +43,7 @@ const PartnerRouteController=()=>{
       <>
         <Routes>
           <Route path='/' element={<Homepage />} />
-          <Route path="/SecondHomePage" element={<SecondHomePage />} />
+          <Route path="/SecondHomepage" element={<SecondHomePage />} />
           <Route path='/Login' element={
             <RouteNonAuthen>
               <Login />

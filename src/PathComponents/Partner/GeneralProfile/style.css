@@ -1,7 +1,6 @@
 body {
   position: relative;
   overflow-x: hidden;
-  background-color: #CFD8DC;
 }
 body,
 html { height: 100%;}
@@ -171,14 +170,14 @@ margin-right: 10px;
   top: 0;
 }
 /*Fontawesome icons*/
-.nav.sidebar-nav li a::before {
+/* .nav.sidebar-nav li a::before {
   font-family: fontawesome;
   content: "\f12e";
   vertical-align: baseline;
   display: inline-block;
   padding-right: 5px;
-}
-a[href*="#home"]::before {
+} */
+/* a[href*="#home"]::before {
 content: "\f015" !important;
 }
 a[href*="#about"]::before {
@@ -220,7 +219,7 @@ content: "\f086" !important;
 a[href*="#followme"]::before {
 content: "\f099" !important;
 color: #0084b4;
-}
+} */
 /*-------------------------------*/
 /*       Hamburger-Cross         */
 /*-------------------------------*/

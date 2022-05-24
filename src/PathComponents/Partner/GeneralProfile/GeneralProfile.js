@@ -1,44 +1,31 @@
 import React,{useState} from "react";
-<<<<<<< HEAD
-import SideBar from "./SideBar"
-import "./style.css"
-=======
 import SideBar from "./SideBar";
->>>>>>> 9acba2470e20d08ec38058b35d5b86524db88af9
+import "./style.css";
 export default function GeneralProfile(){
-    const [sidebar, setSidebar] = useState(false);
-    const showSidebar = () => setSidebar(!sidebar);
+    const [isShow, setShow] = useState(false);
     return(
         <>
-            <div id="wrapper">
-                <div class="overlay"></div>
+            <div id="wrapper" className={isShow ? "toggled" : null}>
+                <div class="overlay" style={isShow ? {} : { display: "none" }}></div>
                 <nav class="navbar navbar-inverse fixed-top" id="sidebar-wrapper" role="navigation">
                     <ul class="nav sidebar-nav">
                         <div class="sidebar-header">
                             <div class="sidebar-brand">
                                 <a href="#">Brand</a></div></div>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#events">Events</a></li>
-                        <li><a href="#team">Team</a></li>
-                        <li class="dropdown">
-                            <a href="#works" class="dropdown-toggle" data-toggle="dropdown">Works <span class="caret"></span></a>
-                            <ul class="dropdown-menu animated fadeInLeft" role="menu">
-                                <div class="dropdown-header">Dropdown heading</div>
-                                <li><a href="#pictures">Pictures</a></li>
-                                <li><a href="#videos">Videeos</a></li>
-                                <li><a href="#books">Books</a></li>
-                                <li><a href="#art">Art</a></li>
-                                <li><a href="#awards">Awards</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                        <li><a href="#followme">Follow me</a></li>
+                        <li><a href="/Partner/Flight" style={{textAlign:"start"}}>Flight</a></li>
+                        <li><a href="/Partner/Apart" style={{textAlign:"start"}}>Apart</a></li>
+                        <li><a href="/Partner/Hotel" style={{textAlign:"start"}}>Hotel</a></li>
+                        <li><a href="/Partner/Car Rentals" style={{textAlign:"start"}}>Car Rentals</a></li>
+                        <li><a href="/Partner/Voucher" style={{textAlign:"start"}}>Voucher</a></li>
+                        <li><a href="/Partner/Combo" style={{textAlign:"start"}}>Combo</a></li>
+                        <li><a href="/Partner/Eats" style={{textAlign:"start"}}>Eats</a></li>
+                        <li><a href="/Partner/Xperience" style={{textAlign:"start"}}>Xperience</a></li>
+                        <li><a href="/Partner/Airport" style={{textAlign:"start"}}>Car</a></li>
+                        <li><a href="/Partner/SecondHomepage" style={{textAlign:"start"}}>Signout</a></li>
                     </ul>
                 </nav>
                 <div id="page-content-wrapper">
-                    <button type="button" class="hamburger animated fadeInLeft is-closed" data-toggle="offcanvas">
+                    <button type="button" class={isShow ? "hamburger animated fadeInLeft is-open" : "hamburger animated fadeInLeft is-closed"} onClick={() => setShow(!isShow)} data-toggle="offcanvas">
                         <span class="hamb-top"></span>
                         <span class="hamb-middle"></span>
                         <span class="hamb-bottom"></span>
@@ -57,7 +44,6 @@ export default function GeneralProfile(){
                     </div>
                 </div>
             </div>
-
         </>
     )
 }
