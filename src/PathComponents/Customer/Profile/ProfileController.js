@@ -5,20 +5,19 @@ import ProfileSetting from "./EditProfile/ProfileSetting";
 import CreditCard from "./CreditCard/CreditCardManager";
 import Point from "./Point/App_Bouns_Points";
 import "./ProfileController.css"
-import {AuthContext} from '../../../Auth/SessionCustomer'
-import axios from 'axios';
-export default function ProfileController(){
-   
+export default function ProfileController(props){
+    // console.log("controller "+props.value);
+    var test=props.value;
     return (
         <div className="customer-profile-controller">
             <div className="customer-sidebar">
-                <SideBar/>
+                <SideBar value={props.value}/>
             </div>
             <div style={{maxWidth:"100%",maxHeight:"800px"}}>
                 <Routes>
-                    <Route path="/" element={<ProfileSetting/>} />
-                    <Route path="/Point" element={<Point />} />
-                    <Route path="/Creditcard" element={<CreditCard />} />
+                    <Route path="/" element={<ProfileSetting value={test}/>} />
+                    <Route path="/Point" element={<Point value={props.value}/>} />
+                    <Route path="/Creditcard" element={<CreditCard value={props.value}/>} />
                 </Routes>
             </div>
         </div>

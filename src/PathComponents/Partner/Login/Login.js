@@ -18,6 +18,9 @@ const PartnerLogin = () => {
             setCookies("Partner",res.data.TOKEN,{path:"/Parent",maxAge:res.data.EXPIRED_TIME});
             Navigate("/Partner/Profile");
           }
+          else{
+            window.alert(res.data.ERROR);
+          }
         })
       }
   return (

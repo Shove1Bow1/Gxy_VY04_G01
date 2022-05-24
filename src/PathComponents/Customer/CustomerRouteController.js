@@ -1,6 +1,6 @@
 /// Modules and component
 import React, { Fragment, useEffect, useState, useContext } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation, Navigate, useNavigate } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate, useNavigate,useParams } from 'react-router-dom'
 import axios from 'axios';
 import { useCookies } from "react-cookie";
 /// Component
@@ -16,19 +16,32 @@ import './App.css';
 
 const App = () => {
   const [getCookies, setCookies] = useCookies();
-  const { CUSTOMER_TOKEN } = useContext(AuthContext);
+  const token=window.location.href;
+  let getParram=token.split("/");
+  console.log(getCookies.Customer);
   function checkStatus() {
     var Status = false;
     if (getCookies.Customer) {
-      Status=axios.post("https://gxyvy04g01backend-production.up.railway.app/Customer/getStatus", {
+      Status = axios.post("https://gxyvy04g01backend-production.up.railway.app/Customer/getStatus", {
         TOKEN: getCookies.Customer
       }).then(res => {
         if (res.data.STATUS)
           return true;
       })
     }
-    return Status;
-  }
+    else{
+      if(getParram[3]){
+        Status = axios.post("https://gxyvy04g01backend-production.up.railway.app/Customer/getStatus", {
+          TOKEN: getParram[3]
+        }).then(res => {
+          if (res.data.STATUS)
+            return true;
+        })
+      }
+    }
+      return Status;
+    }
+  
   const RouteAuth = ({ children }) => {
     if (checkStatus()) {
       return children;
@@ -46,8 +59,6 @@ const App = () => {
       <Navbar />
       <div style={{ position: "relative" }}>
         <Routes>
-
-          <Route path='/*' element={<Homepage />} />
           <Route path='/' element={<Homepage />} />
           <Route path='/Login/*' element={
             <RouteNonAuth>
@@ -64,12 +75,15 @@ const App = () => {
               <Profile />
             </RouteAuth>
           } />
-
+          <Route path='/:token/Profile/*' element={
+            <RouteAuth>
+              <Profile value={getParram[3]}/>
+            </RouteAuth>
+          } />
         </Routes>
       </div>
       <FooterCustomer />
     </>
   );
 }
-
 export default App;

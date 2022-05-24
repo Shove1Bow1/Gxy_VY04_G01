@@ -21,8 +21,8 @@ const ProfileSetting= (props) => {
                     </ul>
                 </nav>
                 <div>
-                    {getPage===1? <CustomerProfile tokenValue={CUSTOMER_TOKEN} idValue={CUSTOMER_ID}/>:null}
-                    {getPage===2? <ChangePassword tokenValue={CUSTOMER_TOKEN} idValue={CUSTOMER_ID}/>:null}
+                    {getPage===1? <CustomerProfile value={props.value} tokenValue={CUSTOMER_TOKEN} idValue={CUSTOMER_ID}/>:null}
+                    {getPage===2? <ChangePassword value={props.value} tokenValue={CUSTOMER_TOKEN} idValue={CUSTOMER_ID}/>:null}
                 </div>
             </div>
         

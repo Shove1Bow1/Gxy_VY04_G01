@@ -55,13 +55,24 @@ export default function PartnerRegister(){
             });
         }
     }
-    function HandlePage1(){
+    function HandlePage1(){ 
+        if(!getEmail||getEmail.length<5){
+            window.alert("Điền Email");
+            return false;
+        }
+        axios.post("http://localhost:8020/Partner/checkEmail",{
+            PARTNER_EMAIL:getEmail,
+        }).then(res=>{
+            if(!res.data.STATUS){
+                window.alert(res.data.ERROR);
+                return false;
+            }
+        })
         if(!getAppID.Services[0]){
+            window.alert("Chọn Services");
             return false;
         }
-        if(getEmail===null ||getEmail===undefined||getEmail.length<5){
-            return false;
-        }
+       
         else{
             return true;
         }
@@ -69,14 +80,17 @@ export default function PartnerRegister(){
     function HandlePage3(e,lengthValue){
         console.log(lengthValue);
         if(getPassword.length<5){
+            window.alert("mật khẩu quá ngắn")
             return false;
         }
         if(getPassword.includes(e)&&getPassword.length===lengthValue){
             return true;
         }
         if(!e){
+            window.alert("Không được bỏ trống mật khẩu xác nhận")
             return false
         }
+        window.alert("Sai mật khẩu xác nhận");
         return false;
     }
     return (

@@ -28,7 +28,7 @@ export default function Register() {
             window.alert("Mật khẩu xác nhận sai");
             return;
         } 
-        if(!getGender.localeCompare("1")||getGender.localeCompare("0")){
+        if(getGender.includes("-1")){
             window.alert("Vui lòng chọn giới tính");
             return;
         }
@@ -40,16 +40,16 @@ export default function Register() {
             window.alert("Vui lòng điền họ tên");
             return;
         }
-        if(getDate.includes("0")){
+        if(getDate.length<2){ 
             window.alert("Vui lòng chọn ngày");
             return;
         }
-        if(getMonth.includes("0")){
-            window.alert("Vui lòng chọn ngày");
+        if(getMonth.length<2){
+            window.alert("Vui lòng chọn Tháng");
             return;
         }
-        if(getYear.includes("0")){
-            window.alert("Vui lòng chọn ngày");
+        if(getYear.length<2){
+            window.alert("Vui lòng chọn Năm");
             return;
         }
         axios.post(
@@ -62,8 +62,10 @@ export default function Register() {
                     BIRTHDAY: getYear + "-" + getMonth + "-" + getDate,
                     GENDER: getGender,
                 }
-            ).then(res => {
+            ).then(res => {  
+                console.log(res.data)
                 if (res.data.STATUS) {
+                  
                    setCookies("Customer",res.data.PACKAGE,{path:"/",maxAge:res.data.EXPIRED_TIME})
                    Navigate("/");
                 }

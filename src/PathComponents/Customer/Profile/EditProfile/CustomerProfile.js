@@ -2,27 +2,35 @@ import axios from 'axios';
 import React, { Component, useContext, useEffect, useState } from 'react'
 import { useCookies } from 'react-cookie';
 import './Profile.css';
-export default function CustomerProfile() {
+export default function CustomerProfile(props) {
     const [getCookies, setCookies,removeCookie] = useCookies();
     const [getFullName, setFullName] = useState("");
-    const [getDay, setDay] = useState("");
-    const [getMonth, setMonth] = useState("");
-    const [getYear, setYear] = useState("");
+    const [getDay, setDay] = useState("0");
+    const [getMonth, setMonth] = useState("0");
+    const [getYear, setYear] = useState("0");
     const [getAddress, setAddress] = useState("");
     const [getCustomerID, setCustomerID] = useState("");
     const [getGender, setGender] = useState("");
     const [getPackage, setPackage] = useState({});
     useEffect(() => {
-        if(!getPackage.CUSTOMER_NAME){
-            axios.post("https://gxyvy04g01backend-production.up.railway.app/Customer/getUserInfo", {
+        console.log(getCookies.Customer)
+        if(getCookies.Customer){
+            axios.post("https:////gxyvy04g01backend-production.up.railway.app/Customer/getCustomerInfo", {
                 TOKEN: getCookies.Customer,
+            }).then(res => {
+                console.log(res.data);
+                setPackage(res.data.PACKAGE);
+            })
+        }
+        else if(props.value){
+            axios.post("https://gxyvy04g01backend-production.up.railway.app/Customer/getCustomerInfo", {
+                TOKEN: props.value,
             }).then(res => {
                 setPackage(res.data.PACKAGE);
             })
         }
-     
     },[])
-   
+    console.log(getPackage);
     useEffect(()=>{ 
         console.log(getPackage);
         setFullName(getPackage.CUSTOMER_NAME);

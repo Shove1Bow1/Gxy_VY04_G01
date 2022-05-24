@@ -6,7 +6,8 @@ import { Link } from 'react-router-dom';
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../../../Auth/SessionCustomer";
 import { useCookies } from "react-cookie";
-export default function Navbar(prop) {
+export default function Navbar(props) {
+    console.log("Navbar"+props.value);
     const [getCookies,setCookie,removeCookies]=useCookies();
     function runScript(){
         removeCookies("Customer");
@@ -16,13 +17,12 @@ export default function Navbar(prop) {
             <div className="list-group">
                 <ul className="navbar-nav">
                     <li className="list-group-item list-group-item-action customize-li">
-
                     </li>
-                    <li><Link to='/Profile/Point' className="list-group-item list-group-item-action">
+                    <li><Link to={props.value?`${props.value}/Profile/Point`:'/Profile/Point'} className="list-group-item list-group-item-action">
                         <FaCoins />
                         <span>Điểm thưởng của tôi</span></Link>
                     </li>
-                    <li><Link to='/Profile/CreditCard' className="list-group-item list-group-item-action">
+                    <li><Link to={props.value?`${props.value}/Profile/CreditCard`:'/Profile/CreditCard'} className="list-group-item list-group-item-action">
                         <FaCreditCard />
                         <span>Thẻ của tôi</span></Link>
                     </li>

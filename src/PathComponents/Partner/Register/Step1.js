@@ -83,7 +83,7 @@ const Step1 = (props) => {
                                     </div>
                                 </div>
                                 <hr />
-                                <button class="btn btn-lg btn-primary btn-block text-uppercase" onClick={props.functionHandle() ? () => props.onPage(2):()=>props.onPage(1)}>Next</button>
+                                <button class="btn btn-lg btn-primary btn-block text-uppercase" onClick={()=>props.functionHandle() ? props.onPage(2):props.onPage(1)}>Next</button>
                                 <hr className="my-4" />
                                 <div className="col-s-4">
                                 </div>
