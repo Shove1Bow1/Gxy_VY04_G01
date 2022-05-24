@@ -4,7 +4,7 @@ import React from "react";
 
 const FirstPage = (props) =>{
     return(
-        <div>
+        <div className="card" style={{padding: "1rem"}}>
             <h2>{props.customerPoint}</h2>
             <p className="size-text" >Giá trị VND</p>
             <hr/>

@@ -81,7 +81,7 @@
   overflow: auto;
   transform: translate(-50%, -50%);
   z-index: 999;
-  background-color: rgb(221, 221, 225);
+  background-color: #ffffff;
   padding: 10px 20px 40px;
   border-radius: 8px;
   display: flex;
@@ -109,8 +109,8 @@
 nav{
   display: flex;
   min-height: 10vh;
-  background: rgb(221, 221, 225);
-  color:black ;
+  background: #ffffff;
+  direction: ltr;
 }
 .bottom-line{
   border-bottom: 2px solid blue;
@@ -132,9 +132,7 @@ nav{
   font-size: 18px;
   font-family: Arial, Helvetica, sans-serif;
 }
-.padding-text{
-  padding-top: 20%;
-}
+
 .text-color-second{
     padding: 12px;
     color: rgb(2, 100, 200);

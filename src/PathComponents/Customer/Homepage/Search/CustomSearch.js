@@ -10,15 +10,7 @@ import Experience from './SideBar/SideBarDetail/Experience';
 function CustomSearch() {
   return (
     <> 
-        <SideBarSearch/>
-    <Routes>
-        <Route path='/' element={<Ticket/>} />
-        <Route path='/hotel' element={<Hotel/>} />
-        <Route path='/combo' element={<Combo/>} />
-        <Route path='/airfield' element={<Airfield/>} />
-        <Route path='/experience' element={<Experience/>} />
-        <Route path='/hireCar' element={<HireCar/>} />
-    </Routes>         
+        <SideBarSearch/>     
     </>
   )
 }

@@ -48,8 +48,10 @@ export default function Password() {
                     <div className='card offset-md-4 col-md-6 '>
                         <div className='card-head'>
                             <div className="pass-head" style={{ fontWeight: "bolder" }}>Đổi mật khẩu</div>
-                            <button className="btn btn-save" onClick={handleNewPassword} style={{ backgroundColor: "rgb(242,243,243)" }}>Lưu</button>
-                            <button className="btn btn-cancel" onClick={handleCancel} style={{ marginLeft: "10px", backgroundColor: "rgb(242,243,243)" }}>Hủy</button>
+                            <div className="click-btn">
+                            <button className="btn-btn-save" onClick={handleNewPassword}>Lưu</button>
+                            <button className="btn-btn-cancel" onClick={handleCancel}>Hủy</button>
+                            </div>
                         </div>
                     </div>
                 </div>

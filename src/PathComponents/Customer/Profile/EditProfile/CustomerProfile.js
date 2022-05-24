@@ -275,8 +275,10 @@ export default function CustomerProfile() {
                                 value={getAddress} onChange={(e) => setAddress(e.target.value)}></input>
                         </div>
                         <br></br>
-                        <button className="btn btn-save" onClick={() => saveNewInfo} style={{ backgroundColor: "rgb(242,243,243)" }}>Lưu</button>
-                        <button className="btn btn-cancel" onClick={() => onCancelEvent} style={{ marginLeft: "10px", backgroundColor: "rgb(242,243,243)" }}>Hủy</button>
+                        <div className='click-btn'>
+                            <button className="btn-save" onClick={() => saveNewInfo}>Lưu</button>
+                            <button className="btn-cancel" onClick={() => onCancelEvent}>Hủy</button>
+                        </div>
                     </div>
                 </div>
             </div>

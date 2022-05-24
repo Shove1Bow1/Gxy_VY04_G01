@@ -25,3 +25,24 @@
 .form-control{
     text-align: start;
 }
+.click-btn{
+    direction: rtl;
+    margin: -2%;
+}
+.btn-save{
+    background: #0194f3;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    height: 45px;
+    width: 60px;
+    margin: 16px;
+}
+.btn-cancel{
+    background: #f7f9fa;
+    color: #0194f3;
+    border: none;
+    border-radius: 3px;
+    height: 45px;
+    width: 60px;
+}

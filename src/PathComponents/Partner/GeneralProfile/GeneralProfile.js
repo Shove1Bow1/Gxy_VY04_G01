@@ -1,6 +1,10 @@
 import React,{useState} from "react";
+<<<<<<< HEAD
 import SideBar from "./SideBar"
 import "./style.css"
+=======
+import SideBar from "./SideBar";
+>>>>>>> 9acba2470e20d08ec38058b35d5b86524db88af9
 export default function GeneralProfile(){
     const [sidebar, setSidebar] = useState(false);
     const showSidebar = () => setSidebar(!sidebar);

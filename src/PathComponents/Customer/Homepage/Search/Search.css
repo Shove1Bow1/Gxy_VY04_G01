@@ -10,7 +10,6 @@
 }
 /* --------------SideBar---------------- */
 .SideBar{
-width: 17%;
 height: 100%;
 background-color: #F2F3F3;
 border-radius: 10px;
@@ -29,6 +28,11 @@ padding-left: 0%;
     width: 100%;
    
 }
-
+.col-2{
+    width: 20%;
+}
+.col-10{
+    width: 80%;
+}
 /* --------------SideBar---------------- */
 

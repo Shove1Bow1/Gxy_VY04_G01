@@ -26,38 +26,53 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      <Menu>
+      <Menu styles={{width:"350px"}}>
           <a className="menu-item" href="#">
+          <img src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/4/455eab646e53732d81380eabadf10b47.svg" style={{}}></img>
             Trang chủ
           </a>
           <a className="menu-item" href="/">
+          <img src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/5/57c03b6d35b76670f2d701310cc18b26.svg" style={{}}></img>
+            Tài khoản
+          </a>
+          <a className="menu-item" href="/">
+          <img src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/b/b0f87008a7a01d72ffb5eacf06870cba.svg" style={{}}></img>
             Đặt chỗ của tôi
           </a>
           <a className="menu-item" href="/">
+          <img src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/7/7eb0ddef942f797baed188048d3b44c0.svg" style={{}}></img>
             Hộp thư của tôi
           </a>
           <a className="menu-item" href="/">
+          <img src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/b/bdab924c2bd3a5fb492022beb158a6ef.svg" style={{}}></img>
             Hợp tác với chúng tôi
           </a>
           <a className="menu-item" href="/">
+          <img src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/4/4c2b56742d3432cbc9a0a2600fbc8bb5.svg" style={{}}></img>
             Vé máy bay
           </a>
           <a className="menu-item" href="/">
+          <img src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/4/4f35d2c4e9c6c6663f831cca1d2392b3.svg" style={{}}></img>
             Khách sạn
           </a>
           <a className="menu-item" href="/">
+          <img src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/3/36bca62f8840da5ea3670bf693f90f90.svg" style={{}}></img>
             Combo tiết kiệm
           </a>
           <a className="menu-item" href="/">
+          <img src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/c/c51ec07e3f7fb509b246825c6b7c6d6d.svg" style={{}}></img>
             Đưa đón sân bay
           </a>
           <a className="menu-item" href="/">
+          <img src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/5/56ad06f2128fa715be3108b2b90e927c.svg" style={{}}></img>
             Xperience
           </a>
           <a className="menu-item" href="/">
+          <img src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/4/44b891a96bfa52b48bbc541a4b1bb226.svg" style={{}}></img>
             Cho thuê xe
           </a>
           <a className="menu-item" href="/">
+          <img src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/3/301c3038b8bc837164fca384096404a6.svg" style={{}}></img>
             JR Pass
           </a>
       </Menu>
