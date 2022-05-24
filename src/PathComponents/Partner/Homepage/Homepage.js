@@ -13,7 +13,6 @@ export default function PartnerHomepage(){
             <div className="body-homepage">
                 <InfoBox />
                 <SecondBody />
-                <ThirdBody />
             </div>
             <footer className="footer-homepage">
                 <Footer />
