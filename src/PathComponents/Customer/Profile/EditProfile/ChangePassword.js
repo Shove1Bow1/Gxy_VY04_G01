@@ -13,24 +13,28 @@ export default function Password() {
             window.alert("Hai Mật khẩu mới không giống nhau");
             return;
         }
-        axios.post("https://gxyvy04g01backend-production.up.railway.app/Customer/changePassword",{
-            OLD_PASSWORD:getOldPassword,
-            TOKEN:getCookies.Customer
-        }).then(res=>{
-            if(!res.data.STATUS){
-                window.alert("Mật khẩu cũ không đúng");
-                return;
-            }
-        })
-        axios.post("https://gxyvy04g01backend-production.up.railway.app/Customer/changePassword",{
-            NEW_PASSWORD:getNewPassword,
-            TOKEN:getCookies.Customer
-        }).then(res=>{
-            if(res.data.STATUS){
-                window.alert("Thay đổi mật khẩu thành công");
-                window.location.reload();
-            }
-        })
+        
+        if(getCookies.Customer){
+            axios.post("https://gxyvy04g01backend-production.up.railway.app/Customer/changePassword", {
+                OLD_PASSWORD: getOldPassword,
+                TOKEN: getCookies.Customer
+            }).then(res => {
+                if (!res.data.STATUS) {
+                    window.alert("Mật khẩu cũ không đúng");
+                    return;
+                }
+            })
+            axios.post("https://gxyvy04g01backend-production.up.railway.app/Customer/changePassword", {
+                NEW_PASSWORD: getNewPassword,
+                TOKEN: getCookies.Customer
+            }).then(res => {
+                if (res.data.STATUS) {
+                    window.alert("Thay đổi mật khẩu thành công");
+                    window.location.reload();
+                }
+            })
+            return;
+        }
     }
     function handleCancel(){
         setOldPassword("");

@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { Component, useContext, useEffect, useState } from 'react'
 import { useCookies } from 'react-cookie';
 import './Profile.css';
-export default function CustomerProfile(props) {
+export default function CustomerProfile() {
     const [getCookies, setCookies,removeCookie] = useCookies();
     const [getFullName, setFullName] = useState("");
     const [getDay, setDay] = useState("0");
@@ -19,13 +19,6 @@ export default function CustomerProfile(props) {
                 TOKEN: getCookies.Customer,
             }).then(res => {
                 console.log(res.data);
-                setPackage(res.data.PACKAGE);
-            })
-        }
-        else if(props.value){
-            axios.post("https://gxyvy04g01backend-production.up.railway.app/Customer/getCustomerInfo", {
-                TOKEN: props.value,
-            }).then(res => {
                 setPackage(res.data.PACKAGE);
             })
         }

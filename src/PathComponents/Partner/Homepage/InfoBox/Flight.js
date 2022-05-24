@@ -17,7 +17,7 @@ export default function Flight(){
                     Get a broader exposure for your Flight and boost your occupancy
                     rate like never before.
                 </p>
-                <Link to="/Partner/Login">
+                <Link to="/Partner/SecondHomePage">
                     <button className='button-get-started'>
                         Get Started
                     </button>

@@ -17,7 +17,7 @@ export default function Hotel(){
                     Get a broader exposure for your accommodation and boost your occupancy
                     rate like never before.
                 </p>
-                <Link to="/Partner/Login">
+                <Link to="/Partner/SecondHomePage">
                     <button className='button-get-started'>
                         Get Started
                     </button>

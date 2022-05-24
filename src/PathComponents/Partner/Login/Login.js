@@ -24,18 +24,19 @@ const PartnerLogin = () => {
         })
       }
   return (
-    <div className="bg-register">
-      <div class=" py-5 h-100">
-        <div class="row">
-          <div class="col-lg-10 col-xl-9 mx-auto">
-            <div class="card card-signin flex-row my-5">
-              <div class="card-img-left d-none d-md-flex">
-                {/* <!-- Background image for card set in CSS! --> */}
-              </div>
-              <div class="card-body">
-                <h5 class="text-center">Traveloka <b className="colorlogo">TERA</b></h5>
-                <br /><br />
-                
+    <>
+      <div className="bg-register">
+        <div class=" py-5 h-100">
+          <div class="row">
+            <div class="col-lg-10 col-xl-9 mx-auto">
+              <div class="card card-signin flex-row my-5">
+                <div class="card-img-left d-none d-md-flex">
+                  {/* <!-- Background image for card set in CSS! --> */}
+                </div>
+                <div class="card-body">
+                  <h5 class="text-center">Traveloka <b className="colorlogo">TERA</b></h5>
+                  <br /><br />
+
                   <div><h5>Welcom Back!</h5></div>
                   <div>
                     <p>
@@ -73,12 +74,13 @@ const PartnerLogin = () => {
                     </p>
                   </div>
                   <hr className="my-2" />
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 export default PartnerLogin;

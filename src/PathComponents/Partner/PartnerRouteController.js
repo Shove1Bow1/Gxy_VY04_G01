@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router,Routes,Route,Navigate  } from "react-router-dom";
+import { BrowserRouter as Router,Routes,Route,Navigate,Link  } from "react-router-dom";
 import {useCookies} from 'react-cookie';
 import axios from 'axios';
 // import '../../App.css';
@@ -7,6 +7,8 @@ import Register from "./Register/GroupRegister";
 import Login from "./Login/Login";
 import Homepage from "./Homepage/Homepage"
 import GeneralProfile from "./GeneralProfile/GeneralProfile";
+import SecondHomePage from "./SecondHomePage/SecondHomePage";
+import "./SecondHomePage/ButtonEffect.css";
 // import "./PartnerRegisterAndLogin.css";
 const PartnerRouteController=()=>{
     const[getCookies,setCookies]=useCookies();
@@ -38,24 +40,27 @@ const PartnerRouteController=()=>{
         return children;
       }
     return(
+      <>
         <Routes>
-            <Route path='/' element={<Homepage/>}/>
-            <Route path='/Login' element={
-                <RouteNonAuthen>
-                    <Login />
-                </RouteNonAuthen>
-                } />
-            <Route path='/Register' element={
-                <RouteNonAuthen>
-                    <Register />
-                </RouteNonAuthen>
-            } />
-            <Route path="/Profile" element={
-                <RouteAuth>
-                    <GeneralProfile/>
-                </RouteAuth>
-            }/>
-        </Routes> 
+          <Route path='/' element={<Homepage />} />
+          <Route path="/SecondHomePage" element={<SecondHomePage />} />
+          <Route path='/Login' element={
+            <RouteNonAuthen>
+              <Login />
+            </RouteNonAuthen>
+          } />
+          <Route path='/Register' element={
+            <RouteNonAuthen>
+              <Register />
+            </RouteNonAuthen>
+          } />
+          <Route path="/Profile" element={
+            <RouteAuth>
+              <GeneralProfile />
+            </RouteAuth>
+          } />
+        </Routes>
+      </>
     )
 }
 export default PartnerRouteController;

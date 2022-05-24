@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 import Title from "./Title";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
@@ -94,12 +94,11 @@ export default function PartnerRegister(){
         return false;
     }
     return (
-        <div>
-            <Title/>
+        <>
             {getPageId===1?<Step1 onPage={setPageId} functionHandle={HandlePage1} getEmail={getEmail} onAppId={getAppID} onHandle={handleChange} onEmail={setEmail}/>:null}
             {getPageId===2?<Step2 onPage={setPageId} getLastName={getPartnerName} onLastName={setPartnerName}/>:null}
             {getPageId===3?<Step3 onPage={setPageId} functionHandle={HandlePage3} getPassword={getPassword} onPassword={setPassword} onClick={RegisterToDatabase}/>:null}
             {getPageId===4?<Step4 onPage={setPageId} registerToDataBase={RegisterToDatabase}/>:null}
-        </div>
+        </>
     )
 }
