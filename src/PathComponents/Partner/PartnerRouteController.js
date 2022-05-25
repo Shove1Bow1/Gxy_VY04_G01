@@ -15,7 +15,7 @@ const PartnerRouteController=()=>{
     const[getStatus,setStatus]=useState(false);
     useEffect(()=>{
         if(getCookies.Partner){
-          axios.post("http://localhost:8020/Partner/getStatus",{
+          axios.post("https://gxyvy04g01backend-production.up.railway.app/Partner/getStatus",{
             TOKEN:getCookies.Partner
           }).then(res=>{
             if(res.data.STATUS)
