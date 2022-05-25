@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router,Routes,Route,Navigate,Link  } from "react-router-dom";
 import {useCookies} from 'react-cookie';
 import axios from 'axios';
@@ -12,32 +12,27 @@ import "./SecondHomePage/ButtonEffect.css";
 // import "./PartnerRegisterAndLogin.css";
 const PartnerRouteController=()=>{
     const[getCookies,setCookies]=useCookies();
-    function checkStatus(){
-        var Status=false;
-        if(getCookies.Customer){
+    const[getStatus,setStatus]=useState(false);
+    useEffect(()=>{
+        if(getCookies.Partner){
           axios.post("http://localhost:8020/Partner/getStatus",{
             TOKEN:getCookies.Partner
           }).then(res=>{
             if(res.data.STATUS)
-              Status=res.data.STATUS
+              setStatus(res.data.STATUS)
           })
-          if(Status){
-            return true;
-          }
-        }
-        return Status;
-      }
+      }})
     const RouteAuth = ({ children }) => {
-        if (checkStatus()) {
-          return <Navigate to="/" />;
+        if (getStatus) {
+          return children;
         }
-        return children;
+        return <Navigate to="/Partner/SecondHomepage" />;
       }
-      const RouteNonAuthen = ({ children }) => {
-        if (checkStatus()) {
-          return <Navigate to="/" />;
+      const RouteNonAuth = ({ children }) => {
+        if (!getStatus) {
+          return children;
         }
-        return children;
+        return <Navigate to="/Partner/Profile" />;
       }
     return(
       <>
@@ -45,14 +40,14 @@ const PartnerRouteController=()=>{
           <Route path='/' element={<Homepage />} />
           <Route path="/SecondHomepage" element={<SecondHomePage />} />
           <Route path='/Login' element={
-            <RouteNonAuthen>
+            <RouteNonAuth>
               <Login />
-            </RouteNonAuthen>
+            </RouteNonAuth>
           } />
           <Route path='/Register' element={
-            <RouteNonAuthen>
+            <RouteNonAuth>
               <Register />
-            </RouteNonAuthen>
+            </RouteNonAuth>
           } />
           <Route path="/Profile" element={
             <RouteAuth>

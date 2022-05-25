@@ -60,11 +60,12 @@ export default function PartnerRegister(){
             window.alert("Điền Email");
             return false;
         }
-        axios.post("http://localhost:8020/Partner/checkEmail",{
+        axios.post("https://gxyvy04g01backend-production.up.railway.app/Partner/checkEmail",{
             PARTNER_EMAIL:getEmail,
         }).then(res=>{
             if(!res.data.STATUS){
                 window.alert(res.data.ERROR);
+                setPageId(1);
                 return false;
             }
         })

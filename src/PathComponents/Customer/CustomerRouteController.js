@@ -12,34 +12,27 @@ import FooterCustomer from './Homepage/Footer/FooterCustomer';
 import Navbar from "./Homepage/Navbar/Navbar";
 /// Css
 import './App.css';
+import { faL } from '@fortawesome/free-solid-svg-icons';
 const App = () => {
   const [getCookies, setCookies] = useCookies();
-  const token=window.location.href;
-  let getParram=token.split("/");
-  console.log("Test "+getParram[3]);
-  function checkStatus() {
-    var Status = false;
+  const [getState,setState]=useState(false);
+  useEffect(()=> {
     if (getCookies.Customer) {
-          axios.post("https://gxyvy04g01backend-production.up.railway.app/Customer/getStatus", {
+        axios.post("https://gxyvy04g01backend-production.up.railway.app/Customer/getStatus", {
         TOKEN: getCookies.Customer
-      }).then(res => {
-        console.log(res.data.STATUS);
-        if (res.data.STATUS){
-           Status = res.data.STATUS;
-           return Status;
-        }
-      })
+      }).then(res=>{if(res.data.STATUS){setState(res.data.STATUS)}})
     }
-      return Status;
-    }
+  })
   const RouteAuth = ({ children }) => {
-    if (checkStatus()) {
-      return children;
-    }
-    return <Navigate to="/" />;
+    console.log(getState);
+    if (getState) {
+       console.log("execute");
+       return children;
+    }  
+  return <Navigate to="/" />; 
   }
   const RouteNonAuth = ({ children }) => {
-    if (!checkStatus()) {
+    if (!getState) {
       return children;
     }
     return <Navigate to="/" />;

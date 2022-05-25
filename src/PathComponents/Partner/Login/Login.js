@@ -36,8 +36,7 @@ const PartnerLogin = () => {
                 <div class="card-body">
                   <h5 class="text-center">Traveloka <b className="colorlogo">TERA</b></h5>
                   <br /><br />
-
-                  <div><h5>Welcom Back!</h5></div>
+                  <div><h5>Welcome Back!</h5></div>
                   <div>
                     <p>
                       Login to manage your accommodation from checking
