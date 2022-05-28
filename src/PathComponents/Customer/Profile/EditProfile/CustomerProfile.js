@@ -13,7 +13,6 @@ export default function CustomerProfile() {
     const [getGender, setGender] = useState("");
     const [getPackage, setPackage] = useState({});
     useEffect(() => {
-        console.log(getCookies.Customer)
         if(getCookies.Customer){
             axios.post("https:////gxyvy04g01backend-production.up.railway.app/Customer/getCustomerInfo", {
                 TOKEN: getCookies.Customer,
@@ -23,7 +22,6 @@ export default function CustomerProfile() {
             })
         }
     },[])
-    console.log(getPackage);
     useEffect(()=>{ 
         console.log(getPackage);
         setFullName(getPackage.CUSTOMER_NAME);
@@ -38,7 +36,7 @@ export default function CustomerProfile() {
     }
     const saveNewInfo = () => {
         axios.post("https://gxyvy04g01backend-production.up.railway.app/Customer/updateInfo", {
-            CUSTOMER_TOKEN: getCookies.Customer,
+            TOKEN: getCookies.Customer,
             CUSTOMER_NAME: getFullName,
             CUSTOMER_ADDRESS: getAddress,
             CUSTOMER_GENDER: getGender,
@@ -276,8 +274,8 @@ export default function CustomerProfile() {
                         </div>
                         <br></br>
                         <div className='click-btn'>
-                            <button className="btn-save" onClick={() => saveNewInfo}>Lưu</button>
-                            <button className="btn-cancel" onClick={() => onCancelEvent}>Hủy</button>
+                            <button className="btn-save" onClick={() => saveNewInfo()}>Lưu</button>
+                            <button className="btn-cancel" onClick={() => onCancelEvent()}>Hủy</button>
                         </div>
                     </div>
                 </div>

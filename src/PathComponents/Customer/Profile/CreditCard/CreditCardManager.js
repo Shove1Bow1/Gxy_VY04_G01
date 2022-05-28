@@ -64,7 +64,7 @@ export default function App() {
     )
   }
   return (
-    <div className="App">
+    <div className="all-body-card">
       <EmptyCard />
       {showModal ? <GenerateADialog /> : null}
     </div>

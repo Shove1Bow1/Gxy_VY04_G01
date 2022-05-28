@@ -16,3 +16,7 @@
   align-items: center;
   list-style: none;
 }
+.all-body{
+  height: 100%;
+  width: 100%;
+}

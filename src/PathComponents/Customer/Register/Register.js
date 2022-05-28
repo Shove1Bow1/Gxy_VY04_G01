@@ -20,18 +20,6 @@ export default function Register() {
     const [getGender,setGender]=useState("-1");
     const [getTelephone,setTelephone]=useState();
     const runScript = () => {
-        if(getConfirmPassword.length<5||getPassword<5){
-            window.alert("Mật khẩu ngắn");
-            return;
-        }
-        if (!getConfirmPassword.includes(getPassword)||getConfirmPassword!==getPassword) {
-            window.alert("Mật khẩu xác nhận sai");
-            return;
-        } 
-        if(getGender.includes("-1")){
-            window.alert("Vui lòng chọn giới tính");
-            return;
-        }
         if(!getEmail){
             window.alert("Vui lòng điền email");
             return;
@@ -40,6 +28,14 @@ export default function Register() {
             window.alert("Vui lòng điền họ tên");
             return;
         }
+        if(getConfirmPassword.length<5||getPassword<5){
+            window.alert("Mật khẩu ngắn");
+            return;
+        }
+        if (!getConfirmPassword.includes(getPassword)||getConfirmPassword!==getPassword) {
+            window.alert("Mật khẩu xác nhận sai");
+            return;
+        } 
         if(getDate.length<2){ 
             window.alert("Vui lòng chọn ngày");
             return;
@@ -50,6 +46,10 @@ export default function Register() {
         }
         if(getYear.length<2){
             window.alert("Vui lòng chọn Năm");
+            return;
+        }  
+        if(getGender.includes("-1")){
+            window.alert("Vui lòng chọn giới tính");
             return;
         }
         axios.post(

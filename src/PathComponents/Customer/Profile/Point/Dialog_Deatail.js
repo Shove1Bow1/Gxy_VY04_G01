@@ -9,7 +9,7 @@ export default function DialogDetail(props) {
     <>
       {
         props.isOpen?
-        <div className="dialogstyle" style={{postion:"absolute"}}>
+        <div className="dialogstyle" style={{postion:"absolute", backgroundcolor: "rgba(0,0,0,0.5)"}}>
           <div className="row">
             <div class="col-sm-4">
               <p className="text-color-blur font-size">Chi Tiết</p>

@@ -132,7 +132,7 @@ class Search extends Component {
                                     </div>
                                 </div>
                                 <div className="col-4">
-                                    <button class="btn-search ">Tìm khách sạn</button>
+                                    <button class="btn-search "> <img src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/6/6109dccccb4bbae97f5ded035b3853d9.svg" style={{}}></img>Tìm khách sạn</button>
                                 </div>
                             </div>
                         </div>

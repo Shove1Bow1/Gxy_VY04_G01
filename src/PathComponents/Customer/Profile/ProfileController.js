@@ -7,11 +7,11 @@ import Point from "./Point/App_Bouns_Points";
 import "./ProfileController.css"
 export default function ProfileController(props){
     return (
-        <div className="customer-profile-controller">
+        <div className="customer-profile-controller" style={{heigh:"1000px"}}>
             <div className="customer-sidebar">
                 <SideBar/>
             </div>
-            <div style={{maxWidth:"100%",maxHeight:"800px"}}>
+            <div style={{Width:"100%",Height:"800px"}}>
                 <Routes>
                     <Route path="/" element={<ProfileSetting/>} />
                     <Route path="/Point" element={<Point/>} />

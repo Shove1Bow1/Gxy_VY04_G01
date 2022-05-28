@@ -30,7 +30,7 @@ export default function MyBounsPoints() {
             <div class="card col-md-2 paint-card">
               <p></p>
               <p ><button onClick={() => setOpen(true)} className="buttonDialog-2">Điểm khả dụng</button></p>
-              <div>
+              <div className="body-point">
                 <h4>&nbsp;{getPoint}</h4>
                 <b>&nbsp;(Dựa trên quy đổi trị giá VND)</b>
                 <br />

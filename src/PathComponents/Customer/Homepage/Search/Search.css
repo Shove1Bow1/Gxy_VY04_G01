@@ -36,3 +36,9 @@ padding-left: 0%;
 }
 /* --------------SideBar---------------- */
 
+.btn-search{
+    background-color: rgb(255, 94, 31);
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+}

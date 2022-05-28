@@ -13,6 +13,7 @@ import "./SecondHomePage/ButtonEffect.css";
 const PartnerRouteController=()=>{
     const[getCookies,setCookies]=useCookies();
     const[getStatus,setStatus]=useState(false);
+    console.log(getCookies.Partner);
     useEffect(()=>{
         if(getCookies.Partner){
           axios.post("https://gxyvy04g01backend-production.up.railway.app/Partner/getStatus",{
@@ -26,13 +27,13 @@ const PartnerRouteController=()=>{
         if (getStatus) {
           return children;
         }
-        return <Navigate to="/Partner/SecondHomepage" />;
+        return <Navigate to="/Partner" />;
       }
       const RouteNonAuth = ({ children }) => {
         if (!getStatus) {
           return children;
         }
-        return <Navigate to="/Partner/Profile" />;
+        return <Navigate to="/Partner" />;
       }
     return(
       <>
@@ -50,9 +51,9 @@ const PartnerRouteController=()=>{
             </RouteNonAuth>
           } />
           <Route path="/Profile" element={
-            <RouteAuth>
+            // <RouteAuth>
               <GeneralProfile />
-            </RouteAuth>
+            // </RouteAuth>
           } />
         </Routes>
       </>
