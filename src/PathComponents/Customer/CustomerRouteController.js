@@ -18,7 +18,6 @@ const App = () => {
   const [getState,setState]=useState(false);
   useEffect(()=> {
     if (getCookies.Customer) {
-      console.log("check");
         axios.post("https://gxyvy04g01backend-production.up.railway.app/Customer/getStatus", {
         TOKEN: getCookies.Customer
       }).then(res=>{if(res.data.STATUS){setState(res.data.STATUS)}})
@@ -27,7 +26,6 @@ const App = () => {
   const RouteAuth = ({ children }) => {
     console.log(getState);
     if (getState) {
-       console.log("execute");
        return children;
     }  
   return <Navigate to="/" />; 

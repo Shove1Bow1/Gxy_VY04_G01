@@ -3,9 +3,7 @@ import PartnerPage from "./PathComponents/Partner/PartnerRouteController";
 import CustomerPage from "./PathComponents/Customer/CustomerRouteController";
 // import Card from "./PathComponents/Customer/CreditCard/CreditCardManager"
 import {BrowserRouter as Router,Routes,Route,useParams} from 'react-router-dom';
-import DataTable from 'react-data-table-component';
 export default function App(){
- 
     return (
       <Router>
         <Routes>
