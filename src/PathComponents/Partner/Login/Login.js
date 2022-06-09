@@ -5,7 +5,7 @@ import { useCookies } from "react-cookie";
 import "../PartnerRegisterAndLogin.css"
 const PartnerLogin = () => {
   const Navigate=useNavigate();
-  const [getCookies,setCookies]=useCookies();
+  const [getCookies,setCookies]=useCookies(["Partner"]);
   const [getEmail, setEmail] = useState("");
   const [getPassword, setPassword] = useState("");
   function Login() {
@@ -15,8 +15,9 @@ const PartnerLogin = () => {
         PARTNER_PASSWORD: getPassword,
       }).then(res=>{
           if(res.data.STATUS){
-            setCookies("Partner",res.data.TOKEN,{path:"/",maxAge:res.data.EXPIRED_TIME});
-            Navigate("/Partner/Profile");
+            setCookies("Partner",res.data.TOKEN,{path:"/Partner",maxAge:res.data.EXPIRED_TIME});
+            console.log(getCookies.Partner);
+            // Navigate("/Partner/Profile");
           }
           else{
             window.alert(res.data.ERROR);

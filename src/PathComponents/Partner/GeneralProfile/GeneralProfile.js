@@ -6,13 +6,13 @@ import "./style.css";
 export default function GeneralProfile(){
     const navigate=useNavigate();
     const [isShow, setShow] = useState(false);
-    const [getCookies,setCookies,removeCookies]=useCookies();
+    const [getCookies,setCookies,removeCookie]=useCookies(["Partner"]);
     useEffect(()=>{
 
     })
     function SignOut(){
-        removeCookies('Partner');
-        console.log("run");
+        setCookies("Partner",null);
+        console.log(getCookies);
         navigate("/Partner");
     }
     return(

@@ -23,14 +23,14 @@ const PartnerRouteController=()=>{
           })
       }})
     const RouteAuth = ({ children }) => {
-      console.log("+" + getCookies.Partner);
-        if (getCookies.Partner) {
+        console.log(getCookies.Partner);
+        if (getCookies.Partner!=='null') {
           return children;
         }
         return <Navigate to="/Partner" />;  
       }
       const RouteNonAuth = ({ children }) => {
-        if (!getCookies.Partner) {
+        if (getCookies.Partner==='null') {
           return children;
         }
         return <Navigate to="/Partner/Profile" />;
