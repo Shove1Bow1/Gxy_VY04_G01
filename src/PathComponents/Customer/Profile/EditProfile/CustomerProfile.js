@@ -16,21 +16,26 @@ export default function CustomerProfile() {
     const [getPackage, setPackage] = useState({});
     useEffect(() => {
         if(getCookies.Customer){
-            axios.post("https:////gxyvy04g01backend-production.up.railway.app/Customer/getCustomerInfo", {
+            axios.post("https://gxyvy04g01backend-production.up.railway.app/Customer/getCustomerInfo", {
                 TOKEN: getCookies.Customer,
             }).then(res => {
-                setPackage(res.data.PACKAGE);
+                if(res.data.STATUS){
+                     setPackage(res.data.PACKAGE);  
+                }
+              
             })
         }
     },[])
-    useEffect(()=>{ 
+    useEffect(()=>{
         setFullName(getPackage.CUSTOMER_NAME);
         setDay(getPackage.CUSTOMER_DAYOFBIRTH);
-        setAddress(getPackage.CUSTOMER_ADDRESS);
+        if(getPackage.CUSTOMER_ADDRESS){
+            setAddress(getPackage.CUSTOMER_ADDRESS);
+        }      
         setGender(getPackage.CUSTOMER_GENDER);
         setMonth(getPackage.CUSTOMER_MONTHOFBIRTH);
         setYear(getPackage.CUSTOMER_YEAROFBIRTH);
-    })
+    },[getPackage])
     const onCancelEvent = () => {
         Navigate("/Profile")
     }
@@ -43,11 +48,8 @@ export default function CustomerProfile() {
             CUSTOMER_BIRTHDAY: getYear + "-" + getMonth + "-" + getDay,
         }).then(res => { 
             if(res.data.STATUS){
-                removeCookie("Customer");
-                setCookies("Customer",res.data.PACKAGE,{path:"/",maxAge:res.data.EXPIRED_TIME});
-                Navigate("/Profile")
                 window.alert("Đổi thông tin thành công");
-                return;
+                Navigate("/Profile");
             }
             else{
                 window.alert("Có lỗi xảy ra trong quá trình đổi thông tin");

@@ -71,7 +71,7 @@ export default function HistoryTransaction(props){
         <div style={{height:"800px",width:"50%",marginLeft:"38%"}}>
             <DataTable
                 columns={columns}
-                data={props.getData}
+                data={getData}
                 pagination
             />
         </div>
