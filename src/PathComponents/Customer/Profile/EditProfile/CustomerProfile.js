@@ -1,8 +1,10 @@
 import axios from 'axios';
 import React, { Component, useContext, useEffect, useState } from 'react'
 import { useCookies } from 'react-cookie';
+import { useNavigate } from 'react-router-dom';
 import './Profile.css';
 export default function CustomerProfile() {
+    const Navigate=useNavigate();
     const [getCookies, setCookies,removeCookie] = useCookies();
     const [getFullName, setFullName] = useState("");
     const [getDay, setDay] = useState("0");
@@ -17,13 +19,11 @@ export default function CustomerProfile() {
             axios.post("https:////gxyvy04g01backend-production.up.railway.app/Customer/getCustomerInfo", {
                 TOKEN: getCookies.Customer,
             }).then(res => {
-                console.log(res.data);
                 setPackage(res.data.PACKAGE);
             })
         }
     },[])
     useEffect(()=>{ 
-        console.log(getPackage);
         setFullName(getPackage.CUSTOMER_NAME);
         setDay(getPackage.CUSTOMER_DAYOFBIRTH);
         setAddress(getPackage.CUSTOMER_ADDRESS);
@@ -32,7 +32,7 @@ export default function CustomerProfile() {
         setYear(getPackage.CUSTOMER_YEAROFBIRTH);
     })
     const onCancelEvent = () => {
-        window.location.reload();
+        Navigate("/Profile")
     }
     const saveNewInfo = () => {
         axios.post("https://gxyvy04g01backend-production.up.railway.app/Customer/updateInfo", {
@@ -45,7 +45,7 @@ export default function CustomerProfile() {
             if(res.data.STATUS){
                 removeCookie("Customer");
                 setCookies("Customer",res.data.PACKAGE,{path:"/",maxAge:res.data.EXPIRED_TIME});
-                window.location.reload();
+                Navigate("/Profile")
                 window.alert("Đổi thông tin thành công");
                 return;
             }

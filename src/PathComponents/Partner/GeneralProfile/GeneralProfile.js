@@ -1,15 +1,19 @@
 import React,{useEffect, useState} from "react";
 import { useCookies } from "react-cookie";
+import { Navigate,useNavigate } from "react-router-dom";
 import SideBar from "./SideBar";
 import "./style.css";
 export default function GeneralProfile(){
+    const navigate=useNavigate();
     const [isShow, setShow] = useState(false);
     const [getCookies,setCookies,removeCookies]=useCookies();
     useEffect(()=>{
 
     })
     function SignOut(){
-        removeCookies("Partner");
+        removeCookies('Partner');
+        console.log("run");
+        navigate("/Partner");
     }
     return(
         <>
@@ -24,14 +28,14 @@ export default function GeneralProfile(){
                         <li><a href="/Partner/Profile" style={{textAlign:"start"}}>Apart</a></li>
                         <li><a href="/Partner/Profile" style={{textAlign:"start"}}>Hotel</a></li>
                         <li><a href="/Partner/Profile" style={{textAlign:"start"}}>Car Rentals</a></li>
-                        <li><a href="/Partner/Profile" style={{textAlign:"start"}}>Voucher</a></li>
+                        <li><a href={`https://voucher.votuan.xyz/partner/auth?token=${getCookies.Partner}&appId=vy04`} style={{textAlign:"start"}}>Voucher</a></li>
                         <li><a href="/Partner/Profile" style={{textAlign:"start"}}>Combo</a></li>
                         <li><a href="/Partner/Profile" style={{textAlign:"start"}}>Eats</a></li>
                         <li><a href="/Partner/Profile" style={{textAlign:"start"}}>Xperience</a></li>
                         <li><a href="/Partner/Profile" style={{textAlign:"start"}}>Car</a></li>
-                        <li><a href="/Partner/SecondHomepage" onClick={()=>SignOut()} style={{textAlign:"start"}}>Signout</a></li>
-                    </ul>
-                </nav>
+                        <button onClick={()=>SignOut()}>Signout</button>
+                    </ul> 
+                </nav>  
                 <div id="page-content-wrapper">
                     <button type="button" class={isShow ? "hamburger animated fadeInLeft is-open" : "hamburger animated fadeInLeft is-closed"} onClick={() => setShow(!isShow)} data-toggle="offcanvas">
                         <span class="hamb-top"></span>

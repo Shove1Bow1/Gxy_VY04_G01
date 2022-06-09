@@ -1,6 +1,6 @@
 // Module and component
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,Navigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { slide as Menu } from 'react-burger-menu';
 import axios from "axios";
@@ -19,7 +19,6 @@ const Navbar = () => {
         TOKEN: getCookies.Customer,
       }).then(res => {
         setCustomerName(res.data.CUSTOMER_NAME);
-        console.log(getCustomerName);
       })
     }
   })
@@ -71,6 +70,10 @@ const Navbar = () => {
           <img src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/4/44b891a96bfa52b48bbc541a4b1bb226.svg" style={{}}></img>
             Cho thuê xe
           </a>
+          <a className="menu-item" href={`https://voucher.votuan.xyz/user/home/?token=${getCookies.Customer}&appId=vy04`}>
+          <img src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/4/44b891a96bfa52b48bbc541a4b1bb226.svg" style={{}}></img>
+            Voucher
+          </a>
           <a className="menu-item" href="/">
           <img src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/3/301c3038b8bc837164fca384096404a6.svg" style={{}}></img>
             JR Pass
@@ -81,19 +84,19 @@ const Navbar = () => {
         <div className={`nav-items ${isOpen && "open"}`}>
           <a href="/Partner">Hợp tác với chúng tôi</a>
           <a href="/">Đặt chỗ của tôi</a>
-          <a href="/">VND</a>
           {!getCustomerName&&!getCookies.Customer?
-            <>
+            <> 
               <Link to="/login"><a>Đăng nhập</a></Link>
               <Link to="/Register"><button className="btn">Đăng ký</button></Link>
             </>
             :
+            <> 
             <Link to="/Profile">
                 <img src={require("./login.png")} width="40" height="40" />
                 <span style={{marginLeft:"10px"}}>Xin chào, {getCustomerName}</span>
             </Link>
+            </>
           }
-         
         </div>
       </div>
       <div className="navbar-small">

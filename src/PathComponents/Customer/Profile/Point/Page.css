@@ -1,6 +1,7 @@
 .page-body{
     width: 100%;
     padding: 1rem 1rem;
+  
 }
 .page-row{
     font-size: 12px;
@@ -9,8 +10,11 @@
     border: 3px;
     width:auto;
     direction: ltr;
-    display:flex;
+    display:flex;  
 }
 .page-point{
     font-size: 12px;
+}
+.page-info{
+    border: 2px solid black;
 }

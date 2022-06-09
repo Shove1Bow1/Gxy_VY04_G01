@@ -7,7 +7,6 @@ import React, { useContext, useState } from "react";
 import { AuthContext } from "../../../../Auth/SessionCustomer";
 import { useCookies } from "react-cookie";
 export default function Navbar(props) {
-    console.log("Navbar"+props.value);
     const [getCookies,setCookie,removeCookies]=useCookies();
     function runScript(){
         removeCookies("Customer");
@@ -27,23 +26,23 @@ export default function Navbar(props) {
                         <span style={{ fontWeight: "500" }}>Thẻ của tôi</span></Link>
                     </li>
                     <hr></hr>
-                    <li><Link to="/" className="list-group-item list-group-item-action">
+                    <li><Link to="/Profile" className="list-group-item list-group-item-action">
                     <img src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/b/b0f87008a7a01d72ffb5eacf06870cba.svg" style={{}}></img>
-                        <span style={{ fontWeight: "500" }}>Đặt chổ của tôi</span></Link>
+                        <span style={{ fontWeight: "500" }}>Đặt chỗ của tôi</span></Link>
                     </li>
-                    <li><Link to="/" className="list-group-item list-group-item-action">
+                    <li><Link to="/Profile/HistoryTransaction" className="list-group-item list-group-item-action">
                     <img src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/0/0965a06a63e873adb97d5ed7d7b92dbe.svg" style={{}}></img>
                         <span style={{ fontWeight: "500" }}>Danh sách giao dịch</span></Link>
                     </li>
-                    <li><Link to="/" className="list-group-item list-group-item-action">
+                    <li><Link to="/Profile" className="list-group-item list-group-item-action">
                     <img src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/7/70100d4a2047ac955124953dbc3351db.svg" style={{}}></img>
                         <span style={{ fontWeight: "500" }}>Thông báo giá vé máy bay</span></Link>
                     </li>
-                    <li><Link to="/" className="list-group-item list-group-item-action">
+                    <li><Link to="/Profile" className="list-group-item list-group-item-action">
                     <img src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/1/18255ae77e4065bc95bc40cc28d4bbb3.svg" style={{}}></img>
                         <span style={{ fontWeight: "500" }}>Passenger Quick Pick</span></Link>
                     </li>
-                    <li><Link to="/" className="list-group-item list-group-item-action">
+                    <li><Link to="/Profile" className="list-group-item list-group-item-action">
                     <img src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/c/cef9778118bdd85e1062cdd0b6196362.svg" style={{}}></img>
                         <span style={{ fontWeight: "500" }}>Khuyến mãi</span></Link>
                     </li>

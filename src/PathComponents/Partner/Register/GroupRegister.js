@@ -21,7 +21,7 @@ export default function PartnerRegister(){
     const [getPasswordConfirm,setPasswordConfirm]=useState("");
     var Navigate=useNavigate();
     function RegisterToDatabase(){
-        axios.post("http://localhost:8020/Partner/Register",{
+        axios.post("https://gxyvy04g01backend-production.up.railway.app/Partner/Register",{
             PARTNER_EMAIL: getEmail,
             PARTNER_PASSWORD: getPassword,
             PARTNER_NAME: getPartnerName,
@@ -60,7 +60,7 @@ export default function PartnerRegister(){
             window.alert("Điền Email");
             return false;
         }
-        axios.post("http://localhost:8020/Partner/checkEmail",{
+        axios.post("https://gxyvy04g01backend-production.up.railway.app/Partner/checkEmail",{
             PARTNER_EMAIL:getEmail,
         }).then(res=>{
             if(!res.data.STATUS){

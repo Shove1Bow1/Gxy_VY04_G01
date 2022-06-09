@@ -26,57 +26,57 @@ const Step1 = (props) => {
                                 <div class="row-respartner" style={{display:"flex",padding:"1rem"}}>
                                     <div class="col-sm-4">
                                         <input class="form-check-input" onChange={(e)=>props.onHandle(e)} type="checkbox" value="FLIGHT" id="flexCheckDefault" defaultChecked={props.onAppId.Services.includes("FLIGHT")?true:false} />
-                                        <label class="form-check-label" for="flexCheckDefault">
+                                        <label>
                                             Flight
                                         </label>
                                     </div>
                                     <div class="col-sm-4">
                                         <input class="form-check-input" onChange={(e)=>props.onHandle(e) } type="checkbox" value="CARRENTAL" id="flexCheckChecked" defaultChecked={props.onAppId.Services.includes("CARRENTAL")?true:false}/>
-                                        <label class="form-check-label" for="flexCheckChecked">
+                                        <label class="form-check-label">
                                             Car Rentals
                                         </label></div>
                                 
                                     <div class="col-sm-4">
                                         <input class="form-check-input" onChange={(e)=>props.onHandle(e) } type="checkbox" value="AIRPORT" id="flexCheckDefault" defaultChecked={props.onAppId.Services.includes("AIRPORT")?true:false}/>
-                                        <label class="form-check-label" for="flexCheckDefault">
+                                        <label>
                                             Airport
                                         </label>
                                     </div>
                                 </div>
                                 <div class="row-respartner" style={{display:"flex", padding:"1rem"}}>
                                     <div class="col-sm-4">
-                                        <input class="form-check-input" onChange={(e)=>props.onHandle(e)} type="checkbox" value="FLIGHT" id="flexCheckDefault" defaultChecked={props.onAppId.Services.includes("FLIGHT")?true:false} />
+                                        <input class="form-check-input" onChange={(e)=>props.onHandle(e)} type="checkbox" value="APART" id="flexCheckDefault" defaultChecked={props.onAppId.Services.includes("APART")?true:false} />
                                         <label class="form-check-label" for="flexCheckDefault">
                                             Apart
                                         </label>
                                     </div>
                                     <div class="col-sm-4">
-                                        <input class="form-check-input" onChange={(e)=>props.onHandle(e) } type="checkbox" value="CARRENTAL" id="flexCheckChecked" defaultChecked={props.onAppId.Services.includes("CARRENTAL")?true:false}/>
+                                        <input class="form-check-input" onChange={(e)=>props.onHandle(e) } type="checkbox" value="XPERIENCE" id="flexCheckChecked" defaultChecked={props.onAppId.Services.includes("XPERIENCE")?true:false}/>
                                         <label class="form-check-label" for="flexCheckChecked">
                                             Xperience
                                         </label></div>
                                 
                                     <div class="col-sm-4">
-                                        <input class="form-check-input" onChange={(e)=>props.onHandle(e) } type="checkbox" value="AIRPORT" id="flexCheckDefault" defaultChecked={props.onAppId.Services.includes("AIRPORT")?true:false}/>
+                                        <input class="form-check-input" onChange={(e)=>props.onHandle(e) } type="checkbox" value="EATS" id="flexCheckDefault" defaultChecked={props.onAppId.Services.includes("EATS")?true:false}/>
                                         <label class="form-check-label" for="flexCheckDefault">
                                             Eats
                                         </label>
                                     </div>
                                 </div><div class="row-respartner" style={{display:"flex", padding:"1rem"}}>
                                     <div class="col-sm-4">
-                                        <input class="form-check-input" onChange={(e)=>props.onHandle(e)} type="checkbox" value="FLIGHT" id="flexCheckDefault" defaultChecked={props.onAppId.Services.includes("FLIGHT")?true:false} />
+                                        <input class="form-check-input" onChange={(e)=>props.onHandle(e)} type="checkbox" value="VOUCHER" id="flexCheckDefault" defaultChecked={props.onAppId.Services.includes("VOUCHER")?true:false} />
                                         <label class="form-check-label" for="flexCheckDefault">
                                             Voucher
                                         </label>
                                     </div>
                                     <div class="col-sm-4">
-                                        <input class="form-check-input" onChange={(e)=>props.onHandle(e) } type="checkbox" value="CARRENTAL" id="flexCheckChecked" defaultChecked={props.onAppId.Services.includes("CARRENTAL")?true:false}/>
+                                        <input class="form-check-input" onChange={(e)=>props.onHandle(e) } type="checkbox" value="COMBO" id="flexCheckChecked" defaultChecked={props.onAppId.Services.includes("COMBO")?true:false}/>
                                         <label class="form-check-label" for="flexCheckChecked">
                                             Combo
                                         </label></div>
                                 
                                     <div class="col-sm-4">
-                                        <input class="form-check-input" onChange={(e)=>props.onHandle(e) } type="checkbox" value="AIRPORT" id="flexCheckDefault" defaultChecked={props.onAppId.Services.includes("AIRPORT")?true:false}/>
+                                        <input class="form-check-input" onChange={(e)=>props.onHandle(e) } type="checkbox" value="HOTEL" id="flexCheckDefault" defaultChecked={props.onAppId.Services.includes("HOTEL")?true:false}/>
                                         <label class="form-check-label" for="flexCheckDefault">
                                             Hotel
                                         </label>

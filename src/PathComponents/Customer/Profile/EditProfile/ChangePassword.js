@@ -2,18 +2,19 @@ import axios from "axios";
 import React, { Component, useState } from "react";
 import { useCookies } from "react-cookie";
 import './Password.css';
-
-export default function Password() {
+import { useNavigate } from "react-router-dom";
+export default function Password() {    
+    const navigate=useNavigate();
     const [getCookies,setCookies]=useCookies();
     const [getOldPassword,setOldPassword]=useState("");
     const [getNewPassword,setNewPassword]=useState("");
     const [getConfirmPassword,setConfirmPassword]=useState("");
     function handleNewPassword(){
+    
         if(getNewPassword!==getConfirmPassword){
             window.alert("Hai Mật khẩu mới không giống nhau");
             return;
         }
-        
         if(getCookies.Customer){
             axios.post("https://gxyvy04g01backend-production.up.railway.app/Customer/changePassword", {
                 OLD_PASSWORD: getOldPassword,
@@ -30,10 +31,11 @@ export default function Password() {
             }).then(res => {
                 if (res.data.STATUS) {
                     window.alert("Thay đổi mật khẩu thành công");
-                    window.location.reload();
+                    navigate("/Profile");   
+                    return;
                 }
             })
-            return;
+         
         }
     }
     function handleCancel(){
