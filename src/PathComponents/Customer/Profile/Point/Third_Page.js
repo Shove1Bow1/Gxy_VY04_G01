@@ -88,7 +88,6 @@ const ThirdPage = () =>{
                     )
                 }
             </center>
-
         </div>
     )
 }
