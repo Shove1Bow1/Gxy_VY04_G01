@@ -8,7 +8,7 @@ const ThirdPage = () =>{
     const [getCookies]=useCookies();
     const [getPackage,setPackage]=useState([]);
     useEffect(()=>{
-        axios.post("http://localhost:8020/Customer/getHistoryPoint",{
+        axios.post("https://gxyvy04g01backend-production.up.railway.app/Customer/getHistoryPoint",{
             TOKEN:getCookies.Customer,
         }).then(res=>{
             console.log(res);
