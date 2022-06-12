@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PartnerPage from "./PathComponents/Partner/PartnerRouteController";
 import CustomerPage from "./PathComponents/Customer/CustomerRouteController";
 // import Card from "./PathComponents/Customer/CreditCard/CreditCardManager"
 import {BrowserRouter as Router,Routes,Route,useParams} from 'react-router-dom';
+import { useCookies } from "react-cookie";
 export default function App(){
     return (
       <Router>

@@ -14,7 +14,7 @@ import Navbar from "./Homepage/Navbar/Navbar";
 import './App.css';
 import { faL } from '@fortawesome/free-solid-svg-icons';
 const App = () => {
-  const [getCookies, setCookies] = useCookies();
+  const [getCookies, setCookies,removeCookies] = useCookies();
   const [getState,setState]=useState(false);
   useEffect(()=> {
     if (getCookies.Customer) {
