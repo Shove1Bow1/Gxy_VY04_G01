@@ -28,7 +28,7 @@ export default function PartnerRegister(){
             APP_ID:getAppID.Services,
         }).then((response)=>{
             if(response.data.STATUS){
-                setCookies("Partner",response.data.TOKEN,{maxAge:response.data.EXPIRED_TIME,path:"/Partner"})
+                setCookies("Partner",response.data.TOKEN,{maxAge:response.data.EXPIRED_TIME,path:"/"})
                 Navigate("/Partner/Profile");
                 return;
             }

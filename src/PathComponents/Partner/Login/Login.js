@@ -15,7 +15,7 @@ const PartnerLogin = () => {
         PARTNER_PASSWORD: getPassword,
       }).then(res=>{
           if(res.data.STATUS){
-            setCookies("Partner",res.data.TOKEN,{path:"/Partner",maxAge:res.data.EXPIRED_TIME});
+            setCookies("Partner",res.data.TOKEN,{path:"/",maxAge:res.data.EXPIRED_TIME});
             console.log(getCookies.Partner);
             // Navigate("/Partner/Profile");
           }
