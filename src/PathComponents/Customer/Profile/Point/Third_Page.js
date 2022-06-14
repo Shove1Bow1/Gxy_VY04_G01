@@ -41,7 +41,7 @@ const ThirdPage = () =>{
     }
     function TypeHistoryPoint(TYPE_HISTORY_POINT){
         if(TYPE_HISTORY_POINT){
-            return "Cộng vào tài khoản";
+            return "Cộng điểm vào tài khoản";
         }
         return "Mua Gift Voucher"
     }
@@ -68,11 +68,11 @@ const ThirdPage = () =>{
                                             <div className="col-sm-6" style={{ fontWeight: "bolder" }}>
                                                 <div>Tình trạng điểm thưởng: {" "+TypeHistoryPoint(item.TYPE_HISTORY_POINT)}</div>   
                                                 <div className="page-point" style={{ fontWeight: "bolder" }}>
-                                                <div>Dịch vụ: {" "+HandleServiceName(item.APP_ID)}</div>
-                                                </div>
                                             </div>
                                         </div>
-                                     
+                                        <div>
+                                            Dịch vụ: {" "+HandleServiceName(item.APP_ID)}</div>
+                                        </div>
                                         <div className="page-row">
                                             <div className="col-sm-6" style={{ fontWeight: "bolder" }}>
                                                 <div>Số điểm thưởng:{" "+item.POINT_VALUE}</div>
